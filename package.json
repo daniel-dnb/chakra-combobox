@@ -5,6 +5,7 @@
   "author": "daniel-dnb",
   "license": "MIT",
   "repository": "daniel-dnb/chakra-combobox",
+  "homepage": "https://daniel-dnb.github.io/chakra-combobox",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
