@@ -1,30 +1,106 @@
-# chakra-combobox
+# Chakra Combobox
 
-> A combobox componente for Chakra UI.
+`chakra-combobox` is a library based on Chakra UI that provides an asynchronous `Combobox` component with support for option virtualization and dynamic data loading.
 
-[![NPM](https://img.shields.io/npm/v/chakra-combobox.svg)](https://www.npmjs.com/package/chakra-combobox) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+## Installation
 
-## Install
+Before using `chakra-combobox`, install the necessary dependencies:
 
-```bash
-npm install --save chakra-combobox
+```sh
+pnpm add @chakra-ui/react @chakra-ui/icons @radix-ui/react-scroll-area @tanstack/react-virtual lodash.debounce lodash.throttle
 ```
 
-## Usage
+If using npm or yarn:
+
+```sh
+npm install @chakra-ui/react @chakra-ui/icons @radix-ui/react-scroll-area @tanstack/react-virtual lodash.debounce lodash.throttle
+```
+
+or
+
+```sh
+yarn add @chakra-ui/react @chakra-ui/icons @radix-ui/react-scroll-area @tanstack/react-virtual lodash.debounce lodash.throttle
+```
+
+## Basic Usage
 
 ```tsx
-import React, { Component } from 'react'
+import { AsyncCombobox } from 'chakra-combobox'
+import { useState } from 'react'
 
-import MyComponent from 'chakra-combobox'
-import 'chakra-combobox/dist/index.css'
+const options = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'cherry', label: 'Cherry' }
+]
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export default function Example() {
+  const [selectedOption, setSelectedOption] = useState(null)
+
+  return (
+    <AsyncCombobox
+      options={options}
+      value={selectedOption}
+      onChange={setSelectedOption}
+      getOptionLabel={(option) => option.label}
+      getOptionValue={(option) => option.value}
+      placeholder='Select an option'
+    />
+  )
 }
 ```
 
-## License
+## `AsyncCombobox` Props
 
-MIT © [daniel-dnb](https://github.com/daniel-dnb)
+| Property             | Type                                      | Description                                      |
+| -------------------- | ----------------------------------------- | ------------------------------------------------ |
+| `options`            | `Array<{ value: string, label: string }>` | List of available options.                       |
+| `value`              | `any`                                     | Selected value.                                  |
+| `onChange`           | `(option: any) => void`                   | Function triggered when an option is selected.   |
+| `getOptionLabel`     | `(option: any) => string`                 | Function returning the option label.             |
+| `getOptionValue`     | `(option: any) => string`                 | Function returning the option value.             |
+| `placeholder`        | `string`                                  | Input placeholder text.                          |
+| `handleSearchChange` | `(search: string) => void`                | Function called when typing in the search input. |
+| `isLoading`          | `boolean`                                 | Indicates if data is being loaded.               |
+| `isFetchingNextPage` | `boolean`                                 | Indicates if the next page is being loaded.      |
+| `hasNextPage`        | `boolean`                                 | Indicates if there are more options to load.     |
+| `fetchNextPage`      | `() => void`                              | Function to load more options.                   |
+
+## Styling
+
+`chakra-combobox` allows style customization via the `chakraStyles` property:
+
+```tsx
+<AsyncCombobox
+  options={options}
+  value={selectedOption}
+  onChange={setSelectedOption}
+  getOptionLabel={(option) => option.label}
+  getOptionValue={(option) => option.value}
+  placeholder='Select an option'
+  chakraStyles={{
+    control: (base) => ({ ...base, borderColor: 'blue.500' }),
+    menuList: (base) => ({ ...base, background: 'gray.50' }),
+    option: (base) => ({ ...base, color: 'black' })
+  }}
+/>
+```
+
+## Virtualization Support
+
+The component uses `react-virtual` to render only visible elements on the screen, improving performance when dealing with large lists.
+
+## Documentation & Demo
+
+For a full demonstration and detailed documentation, visit the [Storybook Documentation](https://daniel-dnb.github.io/chakra-combobox).
+
+## Dependencies
+
+- **Chakra UI**: Provides styling and base components.
+- **Radix UI Scroll Area**: Manages the scroll area.
+- **TanStack React Virtual**: Implements list virtualization.
+- **Lodash.debounce & Lodash.throttle**: Enhances scroll and typing event performance.
+
+## Conclusion
+
+`chakra-combobox` is a flexible solution for creating highly customizable asynchronous dropdowns, optimized for performance and seamlessly integrated with Chakra UI.
