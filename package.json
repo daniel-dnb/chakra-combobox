@@ -10,12 +10,19 @@
     "type": "git",
     "url": "git+https://github.com/daniel-dnb/chakra-combobox"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
   "sideEffects": false,
   "scripts": {
     "dev": "vite",

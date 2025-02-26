@@ -11,6 +11,7 @@ export default defineConfig({
       entryRoot: "src",
       staticImport: true,
       exclude: ["**/*.stories.tsx"],
+      rollupTypes: true,
       afterBuild: () => {
         globbySync(["dist/**/*.d.ts", "dist/**.d.ts"]).map(file => {
           copyFileSync(file, file.replace(/\.d\.ts$/, ".d.cts"));
