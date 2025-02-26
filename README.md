@@ -22,32 +22,64 @@ or
 yarn add @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
 ```
 
-## Basic Usage
+## Basic Usage with React Query
 
 ```tsx
 import { AsyncCombobox } from "chakra-combobox";
 import { useState } from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { getDogBreeds } from "../api/dogs";
 
-const options = [
-  { value: "apple", label: "Apple" },
-  { value: "banana", label: "Banana" },
-  { value: "cherry", label: "Cherry" },
-];
+const initialPage = 1;
 
-export default function Example() {
-  const [selectedOption, setSelectedOption] = useState(null);
+export const AsyncCombobox = () => {
+  const [search, setSearch] = useState("");
+  const {
+    data: dogs,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isFetchingNextPage,
+    isSuccess,
+  } = useInfiniteQuery({
+    queryKey: ["dogs", search],
+    queryFn: ({ pageParam = 0 }) =>
+      getDogBreeds({ page: pageParam + 1, limit: 10, search }),
+    initialPageParam: initialPage - 1,
+    getNextPageParam: (data, _, page) => {
+      if (data.hasNextPage) return page + 1;
+      return;
+    },
+  });
+
+  const parsedDogsData = isSuccess
+    ? dogs?.pages
+        .map(page => page.data)
+        .flat()
+        .map(dogs => ({
+          value: dogs.id.toString(),
+          label: dogs.name,
+        }))
+    : [];
+
+  const [value, setValue] = useState("");
 
   return (
     <AsyncCombobox
-      options={options}
-      value={selectedOption}
-      onChange={setSelectedOption}
+      options={parsedDogsData}
+      fetchNextPage={fetchNextPage}
       getOptionLabel={option => option.label}
       getOptionValue={option => option.value}
-      placeholder="Select an option"
+      handleSearchChange={value => setSearch(value)}
+      isLoading={isLoading}
+      isFetchingNextPage={isFetchingNextPage}
+      placeholder="Select a dog"
+      hasNextPage={hasNextPage}
+      value={value}
+      onChange={setValue}
     />
   );
-}
+};
 ```
 
 ## `AsyncCombobox` Props
@@ -78,6 +110,11 @@ export default function Example() {
   getOptionLabel={option => option.label}
   getOptionValue={option => option.value}
   placeholder="Select an option"
+  fetchNextPage={fetchNextPage}
+  handleSearchChange={value => setSearch(value)}
+  isLoading={isLoading}
+  isFetchingNextPage={isFetchingNextPage}
+  hasNextPage={hasNextPage}
   chakraStyles={{
     control: base => ({ ...base, borderColor: "blue.500" }),
     menuList: base => ({ ...base, background: "gray.50" }),
@@ -93,13 +130,6 @@ The component uses `react-virtual` to render only visible elements on the screen
 ## Documentation & Demo
 
 For a full demonstration and detailed documentation, visit the [Storybook Documentation](https://daniel-dnb.github.io/chakra-combobox).
-
-## Dependencies
-
-- **Chakra UI**: Provides styling and base components.
-- **Radix UI Scroll Area**: Manages the scroll area.
-- **TanStack React Virtual**: Implements list virtualization.
-- **Lodash.debounce & Lodash.throttle**: Enhances scroll and typing event performance.
 
 ## Conclusion
 
