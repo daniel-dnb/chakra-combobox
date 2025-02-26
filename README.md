@@ -1,106 +1,50 @@
-# Chakra Combobox
+# React + TypeScript + Vite
 
-`chakra-combobox` is a library based on Chakra UI that provides an asynchronous `Combobox` component with support for option virtualization and dynamic data loading.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Installation
+Currently, two official plugins are available:
 
-Before using `chakra-combobox`, install the necessary dependencies:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-```sh
-pnpm add @chakra-ui/react @chakra-ui/icons @radix-ui/react-scroll-area @tanstack/react-virtual lodash.debounce lodash.throttle
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+
+- Configure the top-level `parserOptions` property like this:
+
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-If using npm or yarn:
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```sh
-npm install @chakra-ui/react @chakra-ui/icons @radix-ui/react-scroll-area @tanstack/react-virtual lodash.debounce lodash.throttle
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
 ```
-
-or
-
-```sh
-yarn add @chakra-ui/react @chakra-ui/icons @radix-ui/react-scroll-area @tanstack/react-virtual lodash.debounce lodash.throttle
-```
-
-## Basic Usage
-
-```tsx
-import { AsyncCombobox } from 'chakra-combobox'
-import { useState } from 'react'
-
-const options = [
-  { value: 'apple', label: 'Apple' },
-  { value: 'banana', label: 'Banana' },
-  { value: 'cherry', label: 'Cherry' }
-]
-
-export default function Example() {
-  const [selectedOption, setSelectedOption] = useState(null)
-
-  return (
-    <AsyncCombobox
-      options={options}
-      value={selectedOption}
-      onChange={setSelectedOption}
-      getOptionLabel={(option) => option.label}
-      getOptionValue={(option) => option.value}
-      placeholder='Select an option'
-    />
-  )
-}
-```
-
-## `AsyncCombobox` Props
-
-| Property             | Type                                      | Description                                      |
-| -------------------- | ----------------------------------------- | ------------------------------------------------ |
-| `options`            | `Array<{ value: string, label: string }>` | List of available options.                       |
-| `value`              | `any`                                     | Selected value.                                  |
-| `onChange`           | `(option: any) => void`                   | Function triggered when an option is selected.   |
-| `getOptionLabel`     | `(option: any) => string`                 | Function returning the option label.             |
-| `getOptionValue`     | `(option: any) => string`                 | Function returning the option value.             |
-| `placeholder`        | `string`                                  | Input placeholder text.                          |
-| `handleSearchChange` | `(search: string) => void`                | Function called when typing in the search input. |
-| `isLoading`          | `boolean`                                 | Indicates if data is being loaded.               |
-| `isFetchingNextPage` | `boolean`                                 | Indicates if the next page is being loaded.      |
-| `hasNextPage`        | `boolean`                                 | Indicates if there are more options to load.     |
-| `fetchNextPage`      | `() => void`                              | Function to load more options.                   |
-
-## Styling
-
-`chakra-combobox` allows style customization via the `chakraStyles` property:
-
-```tsx
-<AsyncCombobox
-  options={options}
-  value={selectedOption}
-  onChange={setSelectedOption}
-  getOptionLabel={(option) => option.label}
-  getOptionValue={(option) => option.value}
-  placeholder='Select an option'
-  chakraStyles={{
-    control: (base) => ({ ...base, borderColor: 'blue.500' }),
-    menuList: (base) => ({ ...base, background: 'gray.50' }),
-    option: (base) => ({ ...base, color: 'black' })
-  }}
-/>
-```
-
-## Virtualization Support
-
-The component uses `react-virtual` to render only visible elements on the screen, improving performance when dealing with large lists.
-
-## Documentation & Demo
-
-For a full demonstration and detailed documentation, visit the [Storybook Documentation](https://daniel-dnb.github.io/chakra-combobox).
-
-## Dependencies
-
-- **Chakra UI**: Provides styling and base components.
-- **Radix UI Scroll Area**: Manages the scroll area.
-- **TanStack React Virtual**: Implements list virtualization.
-- **Lodash.debounce & Lodash.throttle**: Enhances scroll and typing event performance.
-
-## Conclusion
-
-`chakra-combobox` is a flexible solution for creating highly customizable asynchronous dropdowns, optimized for performance and seamlessly integrated with Chakra UI.

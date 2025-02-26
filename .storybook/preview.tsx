@@ -1,34 +1,34 @@
-import React from 'react'
-import type { Preview } from '@storybook/react'
-import { ChakraProvider } from '@chakra-ui/react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import React from "react";
+import type { Preview } from "@storybook/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false
-    }
-  }
-})
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i
-      }
-    }
+        date: /Date$/i,
+      },
+    },
   },
   decorators: [
-    (Story) => (
+    Story => (
       <ChakraProvider>
         <QueryClientProvider client={queryClient}>
           <Story />
         </QueryClientProvider>
       </ChakraProvider>
-    )
-  ]
-}
+    ),
+  ],
+};
 
-export default preview
+export default preview;

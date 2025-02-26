@@ -1,4 +1,4 @@
-import React, { memo, useState, useMemo } from 'react'
+import React, { memo, useState, useMemo } from "react";
 import {
   Box,
   Button,
@@ -8,13 +8,13 @@ import {
   MenuList,
   Spinner,
   SystemStyleObject,
-  Text
-} from '@chakra-ui/react'
-import debounce from 'lodash.debounce'
-import { AsyncComboboxButtonProps, AsyncComboboxProps } from './types'
-import { Input } from '../Input'
-import { VirtualizedScrollArea } from '../VirtualizedScrollArea'
-import { DropdownIndicator } from '../DropdownIndicator'
+  Text,
+} from "@chakra-ui/react";
+import { AsyncComboboxButtonProps, AsyncComboboxProps } from "./types";
+import { Input } from "../Input";
+import { VirtualizedScrollArea } from "../VirtualizedScrollArea";
+import { DropdownIndicator } from "../DropdownIndicator";
+import { debounce } from "../../helpers/debounce";
 
 export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
   ({
@@ -30,26 +30,26 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
     onChange,
     placeholder,
     dropdownIndicator,
-    chakraStyles
+    chakraStyles,
   }) => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     const onInputChange = useMemo(
       () =>
         debounce((event: React.ChangeEvent<HTMLInputElement>) => {
-          handleSearchChange(event.target.value)
+          handleSearchChange(event.target.value);
         }, 500),
       []
-    )
+    );
 
     const defaultMenuListSx: SystemStyleObject = {
       p: 0,
-      overflow: 'hidden'
-    }
+      overflow: "hidden",
+    };
 
     const menuListSx = chakraStyles?.menuList
       ? chakraStyles.menuList(defaultMenuListSx)
-      : defaultMenuListSx
+      : defaultMenuListSx;
 
     return (
       <Menu
@@ -71,12 +71,12 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
             {(value && getOptionLabel(value)) || placeholder}
           </Text>
 
-          {(isLoading || isFetchingNextPage) && <Spinner size='sm' />}
+          {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
         </AsyncComboboxButton>
         <MenuList sx={menuListSx}>
-          <Box px='10px' borderBottomWidth='1px' borderColor='inherit'>
+          <Box px="10px" borderBottomWidth="1px" borderColor="inherit">
             <Input
-              placeholder='Search...'
+              placeholder="Search..."
               onChange={onInputChange}
               inputSx={chakraStyles?.input}
             />
@@ -85,9 +85,9 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
           <VirtualizedScrollArea
             options={options}
             value={value}
-            onSelect={(selectedOption) => {
-              onChange(selectedOption)
-              setIsOpen(false)
+            onSelect={selectedOption => {
+              onChange(selectedOption);
+              setIsOpen(false);
             }}
             getOptionLabel={getOptionLabel}
             getOptionValue={getOptionValue}
@@ -105,44 +105,44 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
           />
         </MenuList>
       </Menu>
-    )
+    );
   }
-)
+);
 
 const AsyncComboboxButton = memo(
   ({ controlSx, ...rest }: AsyncComboboxButtonProps) => {
     const defaultControlSx: SystemStyleObject = {
       "&[aria-expanded='true']": {
         svg: {
-          transform: 'rotate(180deg)'
-        }
+          transform: "rotate(180deg)",
+        },
       },
       svg: {
-        transition: 'transform 0.1s ease-in-out'
+        transition: "transform 0.1s ease-in-out",
       },
-      textAlign: 'left',
-      borderWidth: '1px',
-      borderColor: 'black',
-      color: 'black',
-      bg: 'transparent',
+      textAlign: "left",
+      borderWidth: "1px",
+      borderColor: "black",
+      color: "black",
+      bg: "transparent",
       _hover: {
-        bg: 'transparent'
+        bg: "transparent",
       },
       _active: {
-        bg: 'transparent'
-      }
-    }
+        bg: "transparent",
+      },
+    };
 
     const finalControlSx = controlSx
       ? controlSx(defaultControlSx)
-      : defaultControlSx
+      : defaultControlSx;
 
     return (
       <MenuButton as={Button} {...rest} sx={finalControlSx}>
-        <Flex justify='space-between' gap={1} align='center'>
+        <Flex justify="space-between" gap={1} align="center">
           {rest.children}
         </Flex>
       </MenuButton>
-    )
+    );
   }
-)
+);
