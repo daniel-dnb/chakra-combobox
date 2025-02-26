@@ -31,7 +31,7 @@
     "preview": "vite preview",
     "prepublishOnly": "pnpm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build --output-dir docs"
   },
   "dependencies": {
     "@radix-ui/react-scroll-area": "^1.2.3",
