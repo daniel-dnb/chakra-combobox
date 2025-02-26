@@ -25,3 +25,5 @@ docs
 *.sw?
 
 *storybook.log
+
+.env

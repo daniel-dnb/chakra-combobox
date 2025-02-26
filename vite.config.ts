@@ -5,21 +5,24 @@ import { copyFileSync } from "node:fs";
 import dts from "vite-plugin-dts";
 import pkg from "./package.json";
 
+const isStorybook = process.env.GITHUB_STORYBOOK_DEPLOY === "true";
+
 export default defineConfig({
   plugins: [
-    dts({
-      entryRoot: "src",
-      staticImport: true,
-      exclude: ["**/*.stories.tsx"],
-      rollupTypes: true,
-      afterBuild: () => {
-        globbySync(["dist/**/*.d.ts", "dist/**.d.ts"]).map(file => {
-          copyFileSync(file, file.replace(/\.d\.ts$/, ".d.cts"));
-        });
-      },
-    }),
+    !isStorybook &&
+      dts({
+        entryRoot: "src",
+        staticImport: true,
+        exclude: ["**/*.stories.tsx"],
+        rollupTypes: true,
+        afterBuild: () => {
+          globbySync(["dist/**/*.d.ts", "dist/**.d.ts"]).map(file => {
+            copyFileSync(file, file.replace(/\.d\.ts$/, ".d.cts"));
+          });
+        },
+      }),
     react(),
-  ],
+  ].filter(Boolean),
   build: {
     target: "esnext",
     lib: {
