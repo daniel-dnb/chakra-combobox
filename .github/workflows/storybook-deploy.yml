@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     env:
       GITHUB_STORYBOOK_DEPLOY: "true"
 
