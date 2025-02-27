@@ -10,6 +10,22 @@
     "type": "git",
     "url": "git+https://github.com/daniel-dnb/chakra-combobox"
   },
+  "keywords": [
+    "react",
+    "async",
+    "combobox",
+    "autocomplete",
+    "dropdown",
+    "virtualized",
+    "chakra-ui",
+    "radix-ui",
+    "tanstack",
+    "ui",
+    "component",
+    "search",
+    "react-components",
+    "library"
+  ],
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
