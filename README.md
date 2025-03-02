@@ -7,19 +7,19 @@
 Before using `chakra-combobox`, install the necessary dependencies:
 
 ```sh
-pnpm add @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
+pnpm add @chakra-ui/react @emotion/react
 ```
 
 If using npm or yarn:
 
 ```sh
-npm install @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
+npm install @chakra-ui/react @emotion/react
 ```
 
 or
 
 ```sh
-yarn add @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
+yarn add @chakra-ui/react @emotion/react
 ```
 
 ## Basic Usage with React Query
@@ -70,13 +70,13 @@ export const AsyncCombobox = () => {
       fetchNextPage={fetchNextPage}
       getOptionLabel={option => option.label}
       getOptionValue={option => option.value}
-      handleSearchChange={value => setSearch(value)}
+      onSearchChange={value => setSearch(value)}
       isLoading={isLoading}
       isFetchingNextPage={isFetchingNextPage}
       placeholder="Select a dog"
       hasNextPage={hasNextPage}
       value={value}
-      onChange={setValue}
+      onSelect={setValue}
     />
   );
 };
@@ -88,15 +88,17 @@ export const AsyncCombobox = () => {
 | -------------------- | ----------------------------------------- | ------------------------------------------------ |
 | `options`            | `Array<{ value: string, label: string }>` | List of available options.                       |
 | `value`              | `any`                                     | Selected value.                                  |
-| `onChange`           | `(option: any) => void`                   | Function triggered when an option is selected.   |
+| `onSelect`           | `(option: any) => void`                   | Function triggered when an option is selected.   |
 | `getOptionLabel`     | `(option: any) => string`                 | Function returning the option label.             |
 | `getOptionValue`     | `(option: any) => string`                 | Function returning the option value.             |
 | `placeholder`        | `string`                                  | Input placeholder text.                          |
-| `handleSearchChange` | `(search: string) => void`                | Function called when typing in the search input. |
+| `onSearchChange`     | `(search: string) => void`                | Function called when typing in the search input. |
 | `isLoading`          | `boolean`                                 | Indicates if data is being loaded.               |
 | `isFetchingNextPage` | `boolean`                                 | Indicates if the next page is being loaded.      |
 | `hasNextPage`        | `boolean`                                 | Indicates if there are more options to load.     |
 | `fetchNextPage`      | `() => void`                              | Function to load more options.                   |
+| `closeOnSelect`      | `boolean`                                 | Close the dropdown when an option is selected.   |
+| `chakraStyles`       | `{ control?: CSSObject, menuList?: CSSObject, option?: CSSObject, scrollArea?: CSSObject, scrollbar?: CSSObject, scrollThumb?: CSSObject, scrollCorner?: CSSObject, loadingMessage?: CSSObject, emptyMessage?: CSSObject }`            | Customize the component styles.                  |
 
 ## Styling
 
@@ -106,15 +108,16 @@ export const AsyncCombobox = () => {
 <AsyncCombobox
   options={options}
   value={selectedOption}
-  onChange={setSelectedOption}
+  onSelect={setSelectedOption}
   getOptionLabel={option => option.label}
   getOptionValue={option => option.value}
   placeholder="Select an option"
   fetchNextPage={fetchNextPage}
-  handleSearchChange={value => setSearch(value)}
+  onSearchChange={value => setSearch(value)}
   isLoading={isLoading}
   isFetchingNextPage={isFetchingNextPage}
   hasNextPage={hasNextPage}
+  closeOnSelect={false}
   chakraStyles={{
     control: base => ({ ...base, borderColor: "blue.500" }),
     menuList: base => ({ ...base, background: "gray.50" }),

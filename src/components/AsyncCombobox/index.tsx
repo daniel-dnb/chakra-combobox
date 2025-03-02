@@ -1,20 +1,12 @@
 import React, { memo, useState, useMemo } from "react";
-import {
-  Box,
-  Button,
-  Flex,
-  Menu,
-  MenuButton,
-  MenuList,
-  Spinner,
-  SystemStyleObject,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Spinner, Text } from "@chakra-ui/react";
 import { AsyncComboboxButtonProps, AsyncComboboxProps } from "./types";
 import { Input } from "../Input";
 import { VirtualizedScrollArea } from "../VirtualizedScrollArea";
 import { DropdownIndicator } from "../DropdownIndicator";
 import { debounce } from "../../helpers/debounce";
+import { PopoverContent, PopoverRoot, PopoverTrigger } from "../ui/popover";
+import { makeCss } from "../../helpers/makeCss";
 
 export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
   ({
@@ -23,62 +15,63 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
     isLoading,
     isFetchingNextPage,
     hasNextPage,
-    handleSearchChange,
+    onSearchChange,
     fetchNextPage,
     options,
     value,
-    onChange,
+    onSelect,
     placeholder,
     dropdownIndicator,
     chakraStyles,
+    closeOnSelect = true,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const onInputChange = useMemo(
       () =>
         debounce((event: React.ChangeEvent<HTMLInputElement>) => {
-          handleSearchChange(event.target.value);
+          onSearchChange(event.target.value);
         }, 500),
       []
     );
 
-    const defaultMenuListSx: SystemStyleObject = {
-      p: 0,
-      overflow: "hidden",
-    };
-
-    const menuListSx = chakraStyles?.menuList
-      ? chakraStyles.menuList(defaultMenuListSx)
-      : defaultMenuListSx;
+    const menuListCss = makeCss(
+      {
+        p: 0,
+        overflow: "hidden",
+      },
+      chakraStyles?.menuList
+    );
 
     return (
-      <Menu
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        onOpen={() => setIsOpen(true)}
-        matchWidth
+      <PopoverRoot
+        open={isOpen}
+        onOpenChange={e => setIsOpen(e.open)}
+        positioning={{ sameWidth: true }}
+        lazyMount
+        unmountOnExit
       >
-        <AsyncComboboxButton
-          controlSx={chakraStyles?.control}
-          rightIcon={
-            <DropdownIndicator
-              customIcon={dropdownIndicator}
-              dropdownIndicatorSx={chakraStyles?.dropdownIndicator}
-            />
-          }
-        >
-          <Text noOfLines={1}>
+        <AsyncComboboxButton controlCss={chakraStyles?.control}>
+          <Text lineClamp={1}>
             {(value && getOptionLabel(value)) || placeholder}
           </Text>
 
-          {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
+          <Flex gap={2} align="center">
+            {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
+
+            <DropdownIndicator
+              customIcon={dropdownIndicator}
+              dropdownIndicatorCss={chakraStyles?.dropdownIndicator}
+            />
+          </Flex>
         </AsyncComboboxButton>
-        <MenuList sx={menuListSx}>
+
+        <PopoverContent width="auto" css={menuListCss}>
           <Box px="10px" borderBottomWidth="1px" borderColor="inherit">
             <Input
               placeholder="Search..."
               onChange={onInputChange}
-              inputSx={chakraStyles?.input}
+              inputCss={chakraStyles?.input}
             />
           </Box>
 
@@ -86,8 +79,8 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
             options={options}
             value={value}
             onSelect={selectedOption => {
-              onChange(selectedOption);
-              setIsOpen(false);
+              onSelect(selectedOption);
+              closeOnSelect && setIsOpen(false);
             }}
             getOptionLabel={getOptionLabel}
             getOptionValue={getOptionValue}
@@ -95,54 +88,56 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
             isFetchingNextPage={isFetchingNextPage}
             fetchNextPage={fetchNextPage}
             hasNextPage={hasNextPage}
-            optionSx={chakraStyles?.option}
-            scrollAreaSx={chakraStyles?.scrollArea}
-            scrollbarSx={chakraStyles?.scrollbar}
-            scrollThumbSx={chakraStyles?.scrollThumb}
-            scrollCornerSx={chakraStyles?.scrollCorner}
-            loadingMessageSx={chakraStyles?.loadingMessage}
-            emptyMessageSx={chakraStyles?.emptyMessage}
+            optionCss={chakraStyles?.option}
+            scrollAreaCss={chakraStyles?.scrollArea}
+            scrollbarCss={chakraStyles?.scrollbar}
+            scrollThumbCss={chakraStyles?.scrollThumb}
+            scrollCornerCss={chakraStyles?.scrollCorner}
+            loadingMessageCss={chakraStyles?.loadingMessage}
+            emptyMessageCss={chakraStyles?.emptyMessage}
           />
-        </MenuList>
-      </Menu>
+        </PopoverContent>
+      </PopoverRoot>
     );
   }
 );
 
 const AsyncComboboxButton = memo(
-  ({ controlSx, ...rest }: AsyncComboboxButtonProps) => {
-    const defaultControlSx: SystemStyleObject = {
-      "&[aria-expanded='true']": {
-        svg: {
-          transform: "rotate(180deg)",
+  ({ controlCss, ...rest }: AsyncComboboxButtonProps) => {
+    const finalControlCss = makeCss(
+      {
+        "&[aria-expanded='true']": {
+          "& svg": {
+            transform: "rotate(180deg)",
+          },
+        },
+        "& svg": {
+          transition: "transform 0.1s ease-in-out",
+        },
+        justifyContent: "space-between",
+        textAlign: "left",
+        borderWidth: "1px",
+        borderColor: "black",
+        borderRadius: "md",
+        fontSize: "md",
+        color: "black",
+        bg: "transparent",
+        _hover: {
+          bg: "transparent",
+        },
+        _active: {
+          bg: "transparent",
         },
       },
-      svg: {
-        transition: "transform 0.1s ease-in-out",
-      },
-      textAlign: "left",
-      borderWidth: "1px",
-      borderColor: "black",
-      color: "black",
-      bg: "transparent",
-      _hover: {
-        bg: "transparent",
-      },
-      _active: {
-        bg: "transparent",
-      },
-    };
-
-    const finalControlSx = controlSx
-      ? controlSx(defaultControlSx)
-      : defaultControlSx;
+      controlCss
+    );
 
     return (
-      <MenuButton as={Button} {...rest} sx={finalControlSx}>
-        <Flex justify="space-between" gap={1} align="center">
+      <PopoverTrigger asChild>
+        <Button {...rest} css={finalControlCss}>
           {rest.children}
-        </Flex>
-      </MenuButton>
+        </Button>
+      </PopoverTrigger>
     );
   }
 );
