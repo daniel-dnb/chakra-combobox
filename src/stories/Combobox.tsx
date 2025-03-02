@@ -43,13 +43,13 @@ export const AsyncCombobox = () => {
       fetchNextPage={fetchNextPage}
       getOptionLabel={option => option.label}
       getOptionValue={option => option.value}
-      handleSearchChange={value => setSearch(value)}
+      onSearchChange={value => setSearch(value)}
       isLoading={isLoading}
       isFetchingNextPage={isFetchingNextPage}
       placeholder="Select a dog"
       hasNextPage={hasNextPage}
       value={value}
-      onChange={setValue}
+      onSelect={setValue}
       chakraStyles={{
         control: provided => ({
           ...provided,

@@ -1,6 +1,6 @@
 {
   "name": "chakra-combobox",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "A combobox componente for Chakra UI.",
   "author": "daniel-dnb",
   "license": "MIT",
@@ -54,14 +54,12 @@
     "@tanstack/react-virtual": "^3.13.2"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "2",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "framer-motion": "^12.4.7",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "@chakra-ui/react": "^3.x",
+    "react": "18.x || 19.x"
   },
   "devDependencies": {
+    "@chakra-ui/react": "^3.8.1",
+    "@emotion/react": "^11.14.0",
     "@chromatic-com/storybook": "^3.2.4",
     "@eslint/js": "^9.21.0",
     "@storybook/addon-essentials": "^8.6.0",
@@ -82,10 +80,10 @@
     "eslint-plugin-storybook": "^0.11.3",
     "globals": "^15.15.0",
     "globby": "^14.1.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "storybook": "^8.6.0",
-    "typescript": "~5.7.2",
+    "typescript": "5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
     "vite-plugin-dts": "^4.5.0"

@@ -42,7 +42,7 @@ export interface AsyncComboboxProps {
    * Callback triggered when the search input text changes.
    * @param value - The new search value.
    */
-  handleSearchChange: (value: string) => void;
+  onSearchChange: (value: string) => void;
   /**
    * Function called to fetch the next page of options.
    */
@@ -51,7 +51,9 @@ export interface AsyncComboboxProps {
    * Callback triggered when an option is selected.
    * @param option - The selected option.
    */
-  onChange: (option: any) => void;
+  onSelect: (option: any) => void;
+  /** Close the combobox when an option is selected. */
+  closeOnSelect?: boolean;
   /**
    * Custom component to render the dropdown indicator.
    */
@@ -135,5 +137,5 @@ export type AsyncComboboxButtonProps = ButtonProps & {
    * @param provided - Default styles from Chakra UI.
    * @returns Custom styles.
    */
-  controlSx?: (provided: SystemStyleObject) => SystemStyleObject;
+  controlCss?: (provided: SystemStyleObject) => SystemStyleObject;
 };
