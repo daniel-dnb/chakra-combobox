@@ -98,6 +98,8 @@ export const AsyncCombobox = () => {
 | `hasNextPage`        | `boolean`                                 | Indicates if there are more options to load.     |
 | `fetchNextPage`      | `() => void`                              | Function to load more options.                   |
 | `closeOnSelect`      | `boolean`                                 | Close the dropdown when an option is selected.   |
+| `loadingElement`     | `ReactNode`                               | Custom loading message element.                  |
+| `emptyElement`       | `ReactNode`                               | Custom empty message element.                    |
 | `chakraStyles`       | `{ control?: CSSObject, menuList?: CSSObject, option?: CSSObject, scrollArea?: CSSObject, scrollbar?: CSSObject, scrollThumb?: CSSObject, scrollCorner?: CSSObject, loadingMessage?: CSSObject, emptyMessage?: CSSObject }`            | Customize the component styles.                  |
 
 ## Styling
