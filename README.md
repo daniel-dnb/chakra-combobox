@@ -97,6 +97,9 @@ export const AsyncCombobox = () => {
 | `isFetchingNextPage` | `boolean`                                 | Indicates if the next page is being loaded.      |
 | `hasNextPage`        | `boolean`                                 | Indicates if there are more options to load.     |
 | `fetchNextPage`      | `() => void`                              | Function to load more options.                   |
+| `loadingElement`     | `ReactNode`                               | Custom loading message element.                  |
+| `emptyElement`       | `ReactNode`                               | Custom empty message element.                    |
+| `chakraStyles`       | `{ control?: SystemStyleObject, menuList?: SystemStyleObject, option?: SystemStyleObject, scrollArea?: SystemStyleObject, scrollbar?: SystemStyleObject, scrollThumb?: SystemStyleObject, scrollCorner?: SystemStyleObject, loadingMessage?: SystemStyleObject, emptyMessage?: SystemStyleObject }`            | Customize the component styles.                  |
 
 ## Styling
 

@@ -31,6 +31,8 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
     placeholder,
     dropdownIndicator,
     chakraStyles,
+    loadingElement,
+    emptyElement,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -95,6 +97,8 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
             isFetchingNextPage={isFetchingNextPage}
             fetchNextPage={fetchNextPage}
             hasNextPage={hasNextPage}
+            loadingElement={loadingElement}
+            emptyElement={emptyElement}
             optionSx={chakraStyles?.option}
             scrollAreaSx={chakraStyles?.scrollArea}
             scrollbarSx={chakraStyles?.scrollbar}
