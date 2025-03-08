@@ -1,5 +1,5 @@
 import { ButtonProps, SystemStyleObject } from "@chakra-ui/react";
-import { ElementType } from "react";
+import React, { ElementType } from "react";
 
 export interface AsyncComboboxProps {
   /**
@@ -58,6 +58,14 @@ export interface AsyncComboboxProps {
    * Custom component to render the dropdown indicator.
    */
   dropdownIndicator?: ElementType;
+  /**
+   * Custom component to render the loading message.
+   */
+  loadingElement?: React.ReactNode;
+  /**
+   * Custom component to render the empty message.
+   */
+  emptyElement?: React.ReactNode;
   /**
    * Custom styles for different elements of the combobox, using Chakra UI.
    */

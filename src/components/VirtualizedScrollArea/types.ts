@@ -10,6 +10,8 @@ export interface VirtualizedScrollAreaProps {
   isFetchingNextPage: boolean;
   fetchNextPage: () => void;
   hasNextPage: boolean;
+  loadingElement?: React.ReactNode;
+  emptyElement?: React.ReactNode;
   scrollAreaCss?: (provided: SystemStyleObject) => SystemStyleObject;
   optionCss?: (provided: SystemStyleObject) => SystemStyleObject;
   scrollbarCss?: (provided: SystemStyleObject) => SystemStyleObject;

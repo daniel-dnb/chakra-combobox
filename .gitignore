@@ -26,4 +26,5 @@ docs
 
 *storybook.log
 
+tsconfig.tsbuildinfo
 .env

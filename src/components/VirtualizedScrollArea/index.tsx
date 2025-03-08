@@ -18,6 +18,8 @@ export const VirtualizedScrollArea: React.FC<VirtualizedScrollAreaProps> = memo(
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
+    loadingElement = "Loading...",
+    emptyElement = "No results found",
     scrollAreaCss,
     optionCss,
     scrollbarCss,
@@ -145,15 +147,27 @@ export const VirtualizedScrollArea: React.FC<VirtualizedScrollAreaProps> = memo(
           )}
 
           {items.length === 0 && !isLoading && !isFetchingNextPage && (
-            <Flex css={emptyMessageFinalCss}>
-              <Text>Nenhum resultado encontrado</Text>
-            </Flex>
+            <>
+              {typeof emptyElement === "string" ? (
+                <Flex css={emptyMessageFinalCss}>
+                  <Text>{emptyElement}</Text>
+                </Flex>
+              ) : (
+                emptyElement
+              )}
+            </>
           )}
 
           {isLoading && (
-            <Flex css={loadingMessageFinalCss}>
-              <Text>Carregando...</Text>
-            </Flex>
+            <>
+              {typeof loadingElement === "string" ? (
+                <Flex css={loadingMessageFinalCss}>
+                  <Text>{loadingElement}</Text>
+                </Flex>
+              ) : (
+                loadingElement
+              )}
+            </>
           )}
         </ChakraScrollArea.Viewport>
 
