@@ -25,6 +25,7 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
     chakraStyles,
     loadingElement,
     emptyElement,
+    searchInputPlaceholder = "Search...",
     closeOnSelect = true,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -71,7 +72,7 @@ export const AsyncCombobox: React.FC<AsyncComboboxProps> = memo(
         <PopoverContent width="auto" css={menuListCss}>
           <Box px="10px" borderBottomWidth="1px" borderColor="inherit">
             <Input
-              placeholder="Search..."
+              placeholder={searchInputPlaceholder}
               onChange={onInputChange}
               inputCss={chakraStyles?.input}
             />

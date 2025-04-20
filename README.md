@@ -86,21 +86,22 @@ export const AsyncCombobox = () => {
 
 | Property             | Type                                      | Description                                      |
 | -------------------- | ----------------------------------------- | ------------------------------------------------ |
-| `options`            | `Array<{ value: string, label: string }>` | List of available options.                       |
-| `value`              | `any`                                     | Selected value.                                  |
-| `onSelect`           | `(option: any) => void`                   | Function triggered when an option is selected.   |
-| `getOptionLabel`     | `(option: any) => string`                 | Function returning the option label.             |
-| `getOptionValue`     | `(option: any) => string`                 | Function returning the option value.             |
-| `placeholder`        | `string`                                  | Input placeholder text.                          |
-| `onSearchChange`     | `(search: string) => void`                | Function called when typing in the search input. |
-| `isLoading`          | `boolean`                                 | Indicates if data is being loaded.               |
-| `isFetchingNextPage` | `boolean`                                 | Indicates if the next page is being loaded.      |
-| `hasNextPage`        | `boolean`                                 | Indicates if there are more options to load.     |
-| `fetchNextPage`      | `() => void`                              | Function to load more options.                   |
-| `closeOnSelect`      | `boolean`                                 | Close the dropdown when an option is selected.   |
-| `loadingElement`     | `ReactNode`                               | Custom loading message element.                  |
-| `emptyElement`       | `ReactNode`                               | Custom empty message element.                    |
-| `chakraStyles`       | `{ control?: CSSObject, menuList?: CSSObject, option?: CSSObject, scrollArea?: CSSObject, scrollbar?: CSSObject, scrollThumb?: CSSObject, scrollCorner?: CSSObject, loadingMessage?: CSSObject, emptyMessage?: CSSObject }`            | Customize the component styles.                  |
+| `options`                   | `Array<{ value: string, label: string }>` | List of available options.                       |
+| `value`                     | `any`                                     | Selected value.                                  |
+| `onSelect`                  | `(option: any) => void`                   | Function triggered when an option is selected.   |
+| `getOptionLabel`            | `(option: any) => string`                 | Function returning the option label.             |
+| `getOptionValue`            | `(option: any) => string`                 | Function returning the option value.             |
+| `placeholder`               | `string`                                  | Input placeholder text.                          |
+| `onSearchChange`            | `(search: string) => void`                | Function called when typing in the search input. |
+| `isLoading`                 | `boolean`                                 | Indicates if data is being loaded.               |
+| `isFetchingNextPage`        | `boolean`                                 | Indicates if the next page is being loaded.      |
+| `hasNextPage`               | `boolean`                                 | Indicates if there are more options to load.     |
+| `fetchNextPage`             | `() => void`                              | Function to load more options.                   |
+| `closeOnSelect`             | `boolean`                                 | Close the dropdown when an option is selected.   |
+| `loadingElement`            | `ReactNode`                               | Custom loading message element.                  |
+| `emptyElement`              | `ReactNode`                               | Custom empty message element.                    |
+| `searchInputPlaceholder`    | `string`                                  | Custom placeholder for the search input.         |
+| `chakraStyles`              | `{ control?: CSSObject, menuList?: CSSObject, option?: CSSObject, scrollArea?: CSSObject, scrollbar?: CSSObject, scrollThumb?: CSSObject, scrollCorner?: CSSObject, loadingMessage?: CSSObject, emptyMessage?: CSSObject }`                   | Customize the component styles.                  |
 
 ## Styling
 
@@ -120,6 +121,7 @@ export const AsyncCombobox = () => {
   isFetchingNextPage={isFetchingNextPage}
   hasNextPage={hasNextPage}
   closeOnSelect={false}
+  searchInputPlaceholder="Search..."
   chakraStyles={{
     control: base => ({ ...base, borderColor: "blue.500" }),
     menuList: base => ({ ...base, background: "gray.50" }),

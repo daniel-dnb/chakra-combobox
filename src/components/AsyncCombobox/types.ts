@@ -67,6 +67,10 @@ export interface AsyncComboboxProps {
    */
   emptyElement?: React.ReactNode;
   /**
+   *  Custom placeholder for the search input field.
+   */
+  searchInputPlaceholder?: string;
+  /**
    * Custom styles for different elements of the combobox, using Chakra UI.
    */
   chakraStyles?: {
