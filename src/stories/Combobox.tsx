@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { AsyncCombobox as AsyncComboboxBase } from "../components/AsyncCombobox";
 import { getDogBreeds } from "../api/dogs";
+import { type AsyncComboboxChakraStyles } from "../components/AsyncCombobox/types";
 
 interface DogOption {
   value: string;
@@ -9,6 +10,17 @@ interface DogOption {
 }
 
 const initialPage = 1;
+
+const chakraStyles: AsyncComboboxChakraStyles = {
+  control: provided => ({
+    ...provided,
+    w: "250px",
+  }),
+  scrollArea: provided => ({
+    ...provided,
+    maxH: "200px",
+  }),
+};
 
 export const AsyncCombobox = () => {
   const [search, setSearch] = useState("");
@@ -55,16 +67,7 @@ export const AsyncCombobox = () => {
       hasNextPage={hasNextPage}
       value={value}
       onSelect={option => setValue(option)}
-      chakraStyles={{
-        control: provided => ({
-          ...provided,
-          w: "250px",
-        }),
-        scrollArea: provided => ({
-          ...provided,
-          maxH: "200px",
-        }),
-      }}
+      chakraStyles={chakraStyles}
     />
   );
 };
