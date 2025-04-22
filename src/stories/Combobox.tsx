@@ -3,6 +3,11 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { AsyncCombobox as AsyncComboboxBase } from "../components/AsyncCombobox";
 import { getDogBreeds } from "../api/dogs";
 
+interface DogOption {
+  value: string;
+  label: string;
+}
+
 const initialPage = 1;
 
 export const AsyncCombobox = () => {
@@ -35,7 +40,7 @@ export const AsyncCombobox = () => {
         }))
     : [];
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<DogOption | undefined>(undefined);
 
   return (
     <AsyncComboboxBase
@@ -49,7 +54,7 @@ export const AsyncCombobox = () => {
       placeholder="Select a dog"
       hasNextPage={hasNextPage}
       value={value}
-      onSelect={setValue}
+      onSelect={option => setValue(option)}
       chakraStyles={{
         control: provided => ({
           ...provided,

@@ -1,11 +1,11 @@
 import { SystemStyleObject } from "@chakra-ui/react";
 
-export interface VirtualizedScrollAreaProps {
-  options: any[];
-  value: string;
-  onSelect: (option: any) => void;
-  getOptionLabel: (option: any) => string;
-  getOptionValue: (option: any) => string;
+export interface VirtualizedScrollAreaProps<OptionType> {
+  options: OptionType[];
+  value: OptionType | undefined;
+  onSelect: (option: OptionType) => void;
+  getOptionLabel: (option: OptionType) => string;
+  getOptionValue: (option: OptionType) => string;
   isLoading: boolean;
   isFetchingNextPage: boolean;
   fetchNextPage: () => void;
@@ -21,11 +21,11 @@ export interface VirtualizedScrollAreaProps {
   emptyMessageCss?: (provided: SystemStyleObject) => SystemStyleObject;
 }
 
-export interface VirtualizedOptionProps {
+export interface VirtualizedOptionProps<OptionType> {
   virtualRowStart: number;
-  option: any;
+  option: OptionType;
   isSelected: boolean;
-  onSelect: (option: any) => void;
+  onSelect: (option: OptionType) => void;
   label: string;
   css?: (provided: SystemStyleObject) => SystemStyleObject;
 }

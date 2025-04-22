@@ -87,10 +87,10 @@ export const AsyncCombobox = () => {
 | Property             | Type                                      | Description                                      |
 | -------------------- | ----------------------------------------- | ------------------------------------------------ |
 | `options`                   | `Array<{ value: string, label: string }>` | List of available options.                       |
-| `value`                     | `any`                                     | Selected value.                                  |
-| `onSelect`                  | `(option: any) => void`                   | Function triggered when an option is selected.   |
-| `getOptionLabel`            | `(option: any) => string`                 | Function returning the option label.             |
-| `getOptionValue`            | `(option: any) => string`                 | Function returning the option value.             |
+| `value`                     | `OptionType`                              | Selected value.                                  |
+| `onSelect`                  | `(option: OptionType) => void`            | Function triggered when an option is selected.   |
+| `getOptionLabel`            | `(option: OptionType) => string`          | Function returning the option label.             |
+| `getOptionValue`            | `(option: OptionType) => string`          | Function returning the option value.             |
 | `placeholder`               | `string`                                  | Input placeholder text.                          |
 | `onSearchChange`            | `(search: string) => void`                | Function called when typing in the search input. |
 | `isLoading`                 | `boolean`                                 | Indicates if data is being loaded.               |

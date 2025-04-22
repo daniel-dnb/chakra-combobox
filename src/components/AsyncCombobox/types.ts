@@ -1,7 +1,7 @@
 import { ButtonProps, SystemStyleObject } from "@chakra-ui/react";
 import React, { ElementType } from "react";
 
-export interface AsyncComboboxProps {
+export interface AsyncComboboxProps<OptionType> {
   /**
    * Indicates whether the search is loading.
    */
@@ -17,11 +17,11 @@ export interface AsyncComboboxProps {
   /**
    * List of available options in the combobox.
    */
-  options: any[];
+  options: OptionType[];
   /**
    * Currently selected value in the combobox.
    */
-  value: string;
+  value: OptionType | undefined;
   /**
    * Placeholder text for the input field.
    */
@@ -31,13 +31,13 @@ export interface AsyncComboboxProps {
    * @param option - The option to be displayed.
    * @returns The text to be displayed as the label.
    */
-  getOptionLabel: (option: any) => string;
+  getOptionLabel: (option: OptionType) => string;
   /**
    * Function to get the unique value of an option.
    * @param option - The option to be processed.
    * @returns The value of the option.
    */
-  getOptionValue: (option: any) => string;
+  getOptionValue: (option: OptionType) => string;
   /**
    * Callback triggered when the search input text changes.
    * @param value - The new search value.
@@ -51,7 +51,7 @@ export interface AsyncComboboxProps {
    * Callback triggered when an option is selected.
    * @param option - The selected option.
    */
-  onSelect: (option: any) => void;
+  onSelect: (option: OptionType) => void;
   /** Close the combobox when an option is selected. */
   closeOnSelect?: boolean;
   /**
