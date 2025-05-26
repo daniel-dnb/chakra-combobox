@@ -6,6 +6,7 @@ type ChakraScrollAreaRootProps = BoxProps & ScrollAreaProps;
 
 export const ChakraScrollAreaRoot: React.FC<ChakraScrollAreaRootProps> = ({
   children,
+  css,
   ...rest
 }) => {
   return (
@@ -14,10 +15,11 @@ export const ChakraScrollAreaRoot: React.FC<ChakraScrollAreaRootProps> = ({
       maxH="225px"
       h="full"
       overflow="hidden"
+      {...rest}
       css={{
         "--scrollbar-size": "10px",
+        ...css,
       }}
-      {...rest}
     >
       {children}
     </Box>

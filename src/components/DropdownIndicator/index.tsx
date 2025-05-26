@@ -4,9 +4,11 @@ import { CaretDown } from "../Icons";
 import { DropdownIndicatorProps } from "./types";
 
 export const DropdownIndicator = memo(
-  ({ customIcon, dropdownIndicatorSx, ...rest }: DropdownIndicatorProps) => {
-    const sx = dropdownIndicatorSx ? dropdownIndicatorSx({}) : {};
+  ({ customIcon, dropdownIndicatorCss, ...rest }: DropdownIndicatorProps) => {
+    const css = dropdownIndicatorCss ? dropdownIndicatorCss({}) : {};
 
-    return <Icon as={customIcon || CaretDown} {...rest} sx={sx} />;
+    return (
+      <Icon as={customIcon || CaretDown} boxSize={4} {...rest} css={css} />
+    );
   }
 );

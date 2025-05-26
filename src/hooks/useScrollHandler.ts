@@ -16,6 +16,7 @@ export const useScrollHandler = ({
 }: UseScrollHandlerProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleScroll = useCallback(
     throttle(() => {
       const scrollElement = scrollRef.current;

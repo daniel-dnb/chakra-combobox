@@ -1,7 +1,7 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,7 +22,7 @@ const preview: Preview = {
   },
   decorators: [
     Story => (
-      <ChakraProvider>
+      <ChakraProvider value={defaultSystem}>
         <QueryClientProvider client={queryClient}>
           <Story />
         </QueryClientProvider>

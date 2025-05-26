@@ -1,48 +1,51 @@
 import React from "react";
-import { Box, Flex, SystemStyleObject, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { ChakraScrollArea } from "../ChakraScrollArea";
 import { memo } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { VirtualizedOptionProps, VirtualizedScrollAreaProps } from "./types";
 import { useScrollHandler } from "../../hooks/useScrollHandler";
+import { makeCss } from "../../helpers/makeCss";
 
-export const VirtualizedScrollArea: React.FC<VirtualizedScrollAreaProps> = memo(
-  ({
-    options,
-    value,
-    onSelect,
-    getOptionLabel,
-    getOptionValue,
+function VirtualizedScrollAreaComponent<OptionType>({
+  options,
+  value,
+  onSelect,
+  getOptionLabel,
+  getOptionValue,
+  isLoading,
+  isFetchingNextPage,
+  fetchNextPage,
+  hasNextPage,
+  loadingElement = "Loading...",
+  emptyElement = "No results found",
+  scrollAreaCss,
+  optionCss,
+  scrollbarCss,
+  scrollThumbCss,
+  scrollCornerCss,
+  emptyMessageCss,
+  loadingMessageCss,
+}: VirtualizedScrollAreaProps<OptionType>) {
+  const parentRef = useScrollHandler({
+    onScrollEnd: fetchNextPage,
     isLoading,
     isFetchingNextPage,
-    fetchNextPage,
     hasNextPage,
-    scrollAreaSx,
-    optionSx,
-    scrollbarSx,
-    scrollThumbSx,
-    scrollCornerSx,
-    emptyMessageSx,
-    loadingMessageSx,
-  }) => {
-    const parentRef = useScrollHandler({
-      onScrollEnd: fetchNextPage,
-      isLoading,
-      isFetchingNextPage,
-      hasNextPage,
-    });
-    const rowVirtualizer = useVirtualizer({
-      count: options.length,
-      getScrollElement: () => parentRef.current,
-      estimateSize: () => 40,
-      gap: 4,
-      paddingStart: 4,
-      paddingEnd: 4,
-      overscan: 5,
-    });
-    const items = rowVirtualizer.getVirtualItems();
+  });
+  const rowVirtualizer = useVirtualizer({
+    count: options.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 40,
+    gap: 4,
+    paddingStart: 4,
+    paddingEnd: 4,
+    overscan: 5,
+  });
+  const items = rowVirtualizer.getVirtualItems();
 
-    const defaultScrollbarSx: SystemStyleObject = {
+  const scrollbarFinalCss = makeCss(
+    {
       p: "2px",
       bg: "whiteAlpha.300",
       transition: "background 160ms ease-out",
@@ -57,12 +60,12 @@ export const VirtualizedScrollArea: React.FC<VirtualizedScrollAreaProps> = memo(
         flexDirection: "column",
         height: "var(--scrollbar-size)",
       },
-    };
-    const scrollbarSxFinal = scrollbarSx
-      ? scrollbarSx(defaultScrollbarSx)
-      : defaultScrollbarSx;
+    },
+    scrollbarCss
+  );
 
-    const defaultScrollThumbSx: SystemStyleObject = {
+  const scrollThumbFinalCss = makeCss(
+    {
       bg: "gray.200",
       position: "relative",
       _before: {
@@ -76,108 +79,126 @@ export const VirtualizedScrollArea: React.FC<VirtualizedScrollAreaProps> = memo(
         minWidth: "44px",
         minHeight: "44px",
       },
-    };
-    const scrollThumbSxFinal = scrollThumbSx
-      ? scrollThumbSx(defaultScrollThumbSx)
-      : defaultScrollThumbSx;
+    },
+    scrollThumbCss
+  );
 
-    const defaultScrollCornerSx: SystemStyleObject = {
+  const scrollCornerFinalCss = makeCss(
+    {
       bg: "blackAlpha.500",
-    };
-    const scrollCornerSxFinal = scrollCornerSx
-      ? scrollCornerSx(defaultScrollCornerSx)
-      : defaultScrollCornerSx;
+    },
+    scrollCornerCss
+  );
 
-    const defaultLoadingMessageSx: SystemStyleObject = {
+  const loadingMessageFinalCss = makeCss(
+    {
       py: 2,
       px: 2,
-    };
-    const loadingMessageSxFinal = loadingMessageSx
-      ? loadingMessageSx(defaultLoadingMessageSx)
-      : defaultLoadingMessageSx;
+      fontSize: "md",
+    },
+    loadingMessageCss
+  );
 
-    const defaultEmptyMessageSx: SystemStyleObject = {
+  const emptyMessageFinalCss = makeCss(
+    {
       py: 2,
       px: 2,
-    };
-    const emptyMessageSxFinal = emptyMessageSx
-      ? emptyMessageSx(defaultEmptyMessageSx)
-      : defaultEmptyMessageSx;
+      fontSize: "md",
+    },
+    emptyMessageCss
+  );
 
-    const scrollAreaSxFinal = scrollAreaSx ? scrollAreaSx({}) : {};
-    const scrollAreaMaxHeight = (scrollAreaSxFinal.maxH ||
-      scrollAreaSxFinal.maxHeight) as string;
+  const scrollAreaFinalCss = makeCss({}, scrollAreaCss);
+  const scrollAreaMaxHeight = (scrollAreaFinalCss.maxH ||
+    scrollAreaFinalCss.maxHeight) as string;
 
-    return (
-      <ChakraScrollArea.Root sx={scrollAreaSxFinal}>
-        <ChakraScrollArea.Viewport
-          ref={parentRef}
-          {...(scrollAreaMaxHeight && { maxH: scrollAreaMaxHeight })}
-        >
-          {items.length > 0 && (
-            <Box
-              h={`${rowVirtualizer.getTotalSize()}px`}
-              w="full"
-              position="relative"
-            >
-              {items.map(virtualRow => {
-                const option = options[virtualRow.index];
-                const isSelected =
-                  (value && getOptionValue(value) === getOptionValue(option)) ||
-                  false;
+  return (
+    <ChakraScrollArea.Root css={scrollAreaFinalCss}>
+      <ChakraScrollArea.Viewport
+        ref={parentRef}
+        {...(scrollAreaMaxHeight && { maxH: scrollAreaMaxHeight })}
+      >
+        {items.length > 0 && (
+          <Box
+            h={`${rowVirtualizer.getTotalSize()}px`}
+            w="full"
+            position="relative"
+          >
+            {items.map(virtualRow => {
+              const option = options[virtualRow.index];
+              const isSelected =
+                (value && getOptionValue(value) === getOptionValue(option)) ||
+                false;
 
-                return (
-                  <VirtualizedOption
-                    key={getOptionValue(option)}
-                    option={option}
-                    isSelected={isSelected}
-                    onSelect={onSelect}
-                    label={getOptionLabel(option)}
-                    virtualRowStart={virtualRow.start}
-                    sx={optionSx}
-                  />
-                );
-              })}
-            </Box>
-          )}
+              return (
+                <VirtualizedOption
+                  key={getOptionValue(option)}
+                  option={option}
+                  isSelected={isSelected}
+                  onSelect={onSelect}
+                  label={getOptionLabel(option)}
+                  virtualRowStart={virtualRow.start}
+                  css={optionCss}
+                />
+              );
+            })}
+          </Box>
+        )}
 
-          {items.length === 0 && !isLoading && !isFetchingNextPage && (
-            <Flex sx={emptyMessageSxFinal}>
-              <Text>Nenhum resultado encontrado</Text>
-            </Flex>
-          )}
+        {items.length === 0 && !isLoading && !isFetchingNextPage && (
+          <>
+            {typeof emptyElement === "string" ? (
+              <Flex css={emptyMessageFinalCss}>
+                <Text>{emptyElement}</Text>
+              </Flex>
+            ) : (
+              emptyElement
+            )}
+          </>
+        )}
 
-          {isLoading && (
-            <Flex sx={loadingMessageSxFinal}>
-              <Text>Carregando...</Text>
-            </Flex>
-          )}
-        </ChakraScrollArea.Viewport>
+        {isLoading && (
+          <>
+            {typeof loadingElement === "string" ? (
+              <Flex css={loadingMessageFinalCss}>
+                <Text>{loadingElement}</Text>
+              </Flex>
+            ) : (
+              loadingElement
+            )}
+          </>
+        )}
+      </ChakraScrollArea.Viewport>
 
-        <ChakraScrollArea.Scrollbar
-          orientation="vertical"
-          sx={scrollbarSxFinal}
-        >
-          <ChakraScrollArea.Thumb sx={scrollThumbSxFinal} />
-        </ChakraScrollArea.Scrollbar>
+      <ChakraScrollArea.Scrollbar
+        orientation="vertical"
+        css={scrollbarFinalCss}
+      >
+        <ChakraScrollArea.Thumb css={scrollThumbFinalCss} />
+      </ChakraScrollArea.Scrollbar>
 
-        <ChakraScrollArea.Corner sx={scrollCornerSxFinal} />
-      </ChakraScrollArea.Root>
-    );
-  }
-);
+      <ChakraScrollArea.Corner css={scrollCornerFinalCss} />
+    </ChakraScrollArea.Root>
+  );
+}
 
-const VirtualizedOption = memo(
-  ({
-    option,
-    isSelected,
-    onSelect,
-    label,
-    virtualRowStart,
-    sx,
-  }: VirtualizedOptionProps) => {
-    const defaultSx: SystemStyleObject = {
-      py: 2,
+export const VirtualizedScrollArea = memo(VirtualizedScrollAreaComponent) as <
+  OptionType
+>(
+  props: VirtualizedScrollAreaProps<OptionType>
+) => React.ReactElement;
+
+function VirtualizedOptionComponent<OptionType>({
+  option,
+  isSelected,
+  onSelect,
+  label,
+  virtualRowStart,
+  css,
+}: VirtualizedOptionProps<OptionType>) {
+  const finalCss = makeCss(
+    {
+      py: 2.5,
       px: 2,
       position: "absolute",
       top: 0,
@@ -198,19 +219,23 @@ const VirtualizedOption = memo(
         color: "gray.900",
       },
       backfaceVisibility: "hidden",
-    };
+      fontSize: "md",
+    },
+    css
+  );
 
-    const sxFinal = sx ? sx(defaultSx) : defaultSx;
+  return (
+    <Text
+      as="option"
+      {...(isSelected && { "data-selected": true })}
+      onClick={() => onSelect(option)}
+      css={finalCss}
+    >
+      {label}
+    </Text>
+  );
+}
 
-    return (
-      <Text
-        as="option"
-        {...(isSelected && { "data-selected": true })}
-        onClick={() => onSelect(option)}
-        sx={sxFinal}
-      >
-        {label}
-      </Text>
-    );
-  }
-);
+const VirtualizedOption = memo(VirtualizedOptionComponent) as <OptionType>(
+  props: VirtualizedOptionProps<OptionType>
+) => React.ReactElement;

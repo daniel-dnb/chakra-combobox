@@ -1,7 +1,7 @@
 import { ButtonProps, SystemStyleObject } from "@chakra-ui/react";
-import { ElementType } from "react";
+import React, { ElementType } from "react";
 
-export interface AsyncComboboxProps {
+export interface AsyncComboboxProps<OptionType> {
   /**
    * Indicates whether the search is loading.
    */
@@ -17,11 +17,11 @@ export interface AsyncComboboxProps {
   /**
    * List of available options in the combobox.
    */
-  options: any[];
+  options: OptionType[];
   /**
    * Currently selected value in the combobox.
    */
-  value: string;
+  value: OptionType | undefined;
   /**
    * Placeholder text for the input field.
    */
@@ -31,18 +31,18 @@ export interface AsyncComboboxProps {
    * @param option - The option to be displayed.
    * @returns The text to be displayed as the label.
    */
-  getOptionLabel: (option: any) => string;
+  getOptionLabel: (option: OptionType) => string;
   /**
    * Function to get the unique value of an option.
    * @param option - The option to be processed.
    * @returns The value of the option.
    */
-  getOptionValue: (option: any) => string;
+  getOptionValue: (option: OptionType) => string;
   /**
    * Callback triggered when the search input text changes.
    * @param value - The new search value.
    */
-  handleSearchChange: (value: string) => void;
+  onSearchChange: (value: string) => void;
   /**
    * Function called to fetch the next page of options.
    */
@@ -51,83 +51,99 @@ export interface AsyncComboboxProps {
    * Callback triggered when an option is selected.
    * @param option - The selected option.
    */
-  onChange: (option: any) => void;
+  onSelect: (option: OptionType) => void;
+  /** Close the combobox when an option is selected. */
+  closeOnSelect?: boolean;
   /**
    * Custom component to render the dropdown indicator.
    */
   dropdownIndicator?: ElementType;
   /**
+   * Custom component to render the loading message.
+   */
+  loadingElement?: React.ReactNode;
+  /**
+   * Custom component to render the empty message.
+   */
+  emptyElement?: React.ReactNode;
+  /**
+   *  Custom placeholder for the search input field.
+   */
+  searchInputPlaceholder?: string;
+  /**
    * Custom styles for different elements of the combobox, using Chakra UI.
    */
-  chakraStyles?: {
-    /**
-     * Styles the main container of the combobox.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    control?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the dropdown icon.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    dropdownIndicator?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the dropdown list of options.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    menuList?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles each individual option inside the dropdown list.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    option?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the text input field inside the combobox.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    input?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the scroll area of the options list.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    scrollArea?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the scrollbar of the options list.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    scrollbar?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the scrollbar thumb (draggable indicator).
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    scrollThumb?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the corner of the scrollbar.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    scrollCorner?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the loading message displayed when fetching options.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    loadingMessage?: (provided: SystemStyleObject) => SystemStyleObject;
-    /**
-     * Styles the message displayed when no options are found.
-     * @param provided - Default styles applied by Chakra UI.
-     * @returns Custom styles.
-     */
-    emptyMessage?: (provided: SystemStyleObject) => SystemStyleObject;
-  };
+  chakraStyles?: AsyncComboboxChakraStyles;
 }
+
+export type AsyncComboboxChakraStyles = {
+  /**
+   * Styles the main container of the combobox.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  control?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the dropdown icon.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  dropdownIndicator?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the dropdown list of options.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  menuList?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles each individual option inside the dropdown list.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  option?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the text input field inside the combobox.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  input?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the scroll area of the options list.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  scrollArea?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the scrollbar of the options list.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  scrollbar?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the scrollbar thumb (draggable indicator).
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  scrollThumb?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the corner of the scrollbar.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  scrollCorner?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the loading message displayed when fetching options.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  loadingMessage?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the message displayed when no options are found.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  emptyMessage?: (provided: SystemStyleObject) => SystemStyleObject;
+};
 
 export type AsyncComboboxButtonProps = ButtonProps & {
   /**
@@ -135,5 +151,5 @@ export type AsyncComboboxButtonProps = ButtonProps & {
    * @param provided - Default styles from Chakra UI.
    * @returns Custom styles.
    */
-  controlSx?: (provided: SystemStyleObject) => SystemStyleObject;
+  controlCss?: (provided: SystemStyleObject) => SystemStyleObject;
 };

@@ -7,19 +7,19 @@
 Before using `chakra-combobox`, install the necessary dependencies:
 
 ```sh
-pnpm add @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
+pnpm add @chakra-ui/react @emotion/react
 ```
 
 If using npm or yarn:
 
 ```sh
-npm install @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
+npm install @chakra-ui/react @emotion/react
 ```
 
 or
 
 ```sh
-yarn add @chakra-ui/react@2 @emotion/react @emotion/styled framer-motion
+yarn add @chakra-ui/react @emotion/react
 ```
 
 ## Basic Usage with React Query
@@ -29,6 +29,11 @@ import { AsyncCombobox } from "chakra-combobox";
 import { useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getDogBreeds } from "../api/dogs";
+
+interface DogOption {
+  value: string;
+  label: string;
+}
 
 const initialPage = 1;
 
@@ -62,7 +67,7 @@ export const AsyncCombobox = () => {
         }))
     : [];
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<DogOption | undefined>(undefined);
 
   return (
     <AsyncCombobox
@@ -70,13 +75,13 @@ export const AsyncCombobox = () => {
       fetchNextPage={fetchNextPage}
       getOptionLabel={option => option.label}
       getOptionValue={option => option.value}
-      handleSearchChange={value => setSearch(value)}
+      onSearchChange={value => setSearch(value)}
       isLoading={isLoading}
       isFetchingNextPage={isFetchingNextPage}
       placeholder="Select a dog"
       hasNextPage={hasNextPage}
       value={value}
-      onChange={setValue}
+      onSelect={setValue}
     />
   );
 };
@@ -84,43 +89,44 @@ export const AsyncCombobox = () => {
 
 ## `AsyncCombobox` Props
 
-| Property             | Type                                      | Description                                      |
-| -------------------- | ----------------------------------------- | ------------------------------------------------ |
-| `options`            | `Array<{ value: string, label: string }>` | List of available options.                       |
-| `value`              | `any`                                     | Selected value.                                  |
-| `onChange`           | `(option: any) => void`                   | Function triggered when an option is selected.   |
-| `getOptionLabel`     | `(option: any) => string`                 | Function returning the option label.             |
-| `getOptionValue`     | `(option: any) => string`                 | Function returning the option value.             |
-| `placeholder`        | `string`                                  | Input placeholder text.                          |
-| `handleSearchChange` | `(search: string) => void`                | Function called when typing in the search input. |
-| `isLoading`          | `boolean`                                 | Indicates if data is being loaded.               |
-| `isFetchingNextPage` | `boolean`                                 | Indicates if the next page is being loaded.      |
-| `hasNextPage`        | `boolean`                                 | Indicates if there are more options to load.     |
-| `fetchNextPage`      | `() => void`                              | Function to load more options.                   |
+| Property                 | Type                                      | Description                                      |
+| ------------------------ | ----------------------------------------- | ------------------------------------------------ |
+| `options`                | `Array<{ value: string, label: string }>` | List of available options.                       |
+| `value`                  | `OptionType`                              | Selected value.                                  |
+| `onSelect`               | `(option: OptionType) => void`            | Function triggered when an option is selected.   |
+| `getOptionLabel`         | `(option: OptionType) => string`          | Function returning the option label.             |
+| `getOptionValue`         | `(option: OptionType) => string`          | Function returning the option value.             |
+| `placeholder`            | `string`                                  | Input placeholder text.                          |
+| `onSearchChange`         | `(search: string) => void`                | Function called when typing in the search input. |
+| `isLoading`              | `boolean`                                 | Indicates if data is being loaded.               |
+| `isFetchingNextPage`     | `boolean`                                 | Indicates if the next page is being loaded.      |
+| `hasNextPage`            | `boolean`                                 | Indicates if there are more options to load.     |
+| `fetchNextPage`          | `() => void`                              | Function to load more options.                   |
+| `closeOnSelect`          | `boolean`                                 | Close the dropdown when an option is selected.   |
+| `loadingElement`         | `ReactNode`                               | Custom loading message element.                  |
+| `emptyElement`           | `ReactNode`                               | Custom empty message element.                    |
+| `searchInputPlaceholder` | `string`                                  | Custom placeholder for the search input.         |
+| `chakraStyles`           | `AsyncComboboxChakraStyles`               | Customize the component styles.                  |
 
 ## Styling
 
-`chakra-combobox` allows style customization via the `chakraStyles` property:
+`chakra-combobox` allows style customization via the `chakraStyles` property. The library exports the `AsyncComboboxChakraStyles` type, which you can use to ensure type safety when defining your custom styles:
 
 ```tsx
+import { AsyncCombobox, type AsyncComboboxChakraStyles } from "chakra-combobox";
+
+// ... other imports and component code
+
+const customStyles: AsyncComboboxChakraStyles = {
+  control: base => ({ ...base, borderColor: "blue.500" }),
+  menuList: base => ({ ...base, background: "gray.50" }),
+  option: base => ({ ...base, color: "black" }),
+};
+
 <AsyncCombobox
-  options={options}
-  value={selectedOption}
-  onChange={setSelectedOption}
-  getOptionLabel={option => option.label}
-  getOptionValue={option => option.value}
-  placeholder="Select an option"
-  fetchNextPage={fetchNextPage}
-  handleSearchChange={value => setSearch(value)}
-  isLoading={isLoading}
-  isFetchingNextPage={isFetchingNextPage}
-  hasNextPage={hasNextPage}
-  chakraStyles={{
-    control: base => ({ ...base, borderColor: "blue.500" }),
-    menuList: base => ({ ...base, background: "gray.50" }),
-    option: base => ({ ...base, color: "black" }),
-  }}
-/>
+  // ... other props
+  chakraStyles={customStyles}
+/>;
 ```
 
 ## Virtualization Support
