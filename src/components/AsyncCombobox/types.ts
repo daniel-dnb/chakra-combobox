@@ -27,6 +27,10 @@ export interface AsyncComboboxProps<OptionType> {
    */
   placeholder: string;
   /**
+   * Indicates whether the combobox is clearable.
+   */
+  isClearable?: boolean;
+  /**
    * Function to get the display label of an option.
    * @param option - The option to be displayed.
    * @returns The text to be displayed as the label.
@@ -51,7 +55,7 @@ export interface AsyncComboboxProps<OptionType> {
    * Callback triggered when an option is selected.
    * @param option - The selected option.
    */
-  onSelect: (option: OptionType) => void;
+  onSelect: (option: OptionType | undefined) => void;
   /** Close the combobox when an option is selected. */
   closeOnSelect?: boolean;
   /**
@@ -143,6 +147,12 @@ export type AsyncComboboxChakraStyles = {
    * @returns Custom styles.
    */
   emptyMessage?: (provided: SystemStyleObject) => SystemStyleObject;
+  /**
+   * Styles the clear button.
+   * @param provided - Default styles applied by Chakra UI.
+   * @returns Custom styles.
+   */
+  clearButton?: (provided: SystemStyleObject) => SystemStyleObject;
 };
 
 export type AsyncComboboxButtonProps = ButtonProps & {

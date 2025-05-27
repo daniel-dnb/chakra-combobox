@@ -8,7 +8,13 @@ export const DropdownIndicator = memo(
     const css = dropdownIndicatorCss ? dropdownIndicatorCss({}) : {};
 
     return (
-      <Icon as={customIcon || CaretDown} boxSize={4} {...rest} css={css} />
+      <Icon
+        as={customIcon || CaretDown}
+        boxSize={4}
+        className="dropdown-indicator"
+        {...rest}
+        css={css}
+      />
     );
   }
 );

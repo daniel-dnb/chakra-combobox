@@ -1,5 +1,5 @@
 import React, { memo, useState, useMemo } from "react";
-import { Box, Button, Flex, Spinner, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Spinner, Text } from "@chakra-ui/react";
 import { AsyncComboboxButtonProps, AsyncComboboxProps } from "./types";
 import { Input } from "../Input";
 import { VirtualizedScrollArea } from "../VirtualizedScrollArea";
@@ -7,6 +7,7 @@ import { DropdownIndicator } from "../DropdownIndicator";
 import { debounce } from "../../helpers/debounce";
 import { PopoverContent, PopoverRoot, PopoverTrigger } from "../ui/popover";
 import { makeCss } from "../../helpers/makeCss";
+import { LuX } from "../Icons";
 
 function AsyncComboboxComponent<OptionType>({
   getOptionLabel,
@@ -24,6 +25,7 @@ function AsyncComboboxComponent<OptionType>({
   chakraStyles,
   loadingElement,
   emptyElement,
+  isClearable = true,
   searchInputPlaceholder = "Search...",
   closeOnSelect = true,
 }: AsyncComboboxProps<OptionType>) {
@@ -46,6 +48,15 @@ function AsyncComboboxComponent<OptionType>({
     chakraStyles?.menuList
   );
 
+  const clearButtonCss = makeCss(
+    {
+      p: 0,
+      minW: 6,
+      h: 6,
+    },
+    chakraStyles?.clearButton
+  );
+
   return (
     <PopoverRoot
       open={isOpen}
@@ -62,10 +73,25 @@ function AsyncComboboxComponent<OptionType>({
         <Flex gap={2} align="center">
           {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
 
-          <DropdownIndicator
-            customIcon={dropdownIndicator}
-            dropdownIndicatorCss={chakraStyles?.dropdownIndicator}
-          />
+          <Flex gap={1} align="center">
+            {isClearable && value && (
+              <Button
+                size="xs"
+                variant="ghost"
+                css={clearButtonCss}
+                onClick={e => {
+                  e.stopPropagation();
+                  onSelect(undefined);
+                }}
+              >
+                <Icon boxSize={4} as={LuX} />
+              </Button>
+            )}
+            <DropdownIndicator
+              customIcon={dropdownIndicator}
+              dropdownIndicatorCss={chakraStyles?.dropdownIndicator}
+            />
+          </Flex>
         </Flex>
       </AsyncComboboxButton>
 
@@ -115,11 +141,11 @@ const AsyncComboboxButton = memo(
     const finalControlCss = makeCss(
       {
         "&[aria-expanded='true']": {
-          "& svg": {
+          "& .dropdown-indicator": {
             transform: "rotate(180deg)",
           },
         },
-        "& svg": {
+        "& .dropdown-indicator": {
           transition: "transform 0.1s ease-in-out",
         },
         justifyContent: "space-between",
