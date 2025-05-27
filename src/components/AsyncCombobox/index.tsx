@@ -25,7 +25,7 @@ function AsyncComboboxComponent<OptionType>({
   chakraStyles,
   loadingElement,
   emptyElement,
-  isClearable = true,
+  isClearable = false,
   searchInputPlaceholder = "Search...",
   closeOnSelect = true,
 }: AsyncComboboxProps<OptionType>) {
