@@ -106,6 +106,7 @@ export const AsyncCombobox = () => {
 | `loadingElement`         | `ReactNode`                               | Custom loading message element.                  |
 | `emptyElement`           | `ReactNode`                               | Custom empty message element.                    |
 | `searchInputPlaceholder` | `string`                                  | Custom placeholder for the search input.         |
+| `insideDialog`           | `boolean`                                 | Indicates if the combobox is inside dialog       |
 | `chakraStyles`           | `AsyncComboboxChakraStyles`               | Customize the component styles.                  |
 
 ## Styling
