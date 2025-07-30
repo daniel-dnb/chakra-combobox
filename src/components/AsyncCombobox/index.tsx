@@ -1,11 +1,19 @@
 import React, { memo, useState, useMemo } from "react";
-import { Box, Button, Flex, Icon, Spinner, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Icon,
+  Spinner,
+  Text,
+  Popover,
+  Portal,
+} from "@chakra-ui/react";
 import { AsyncComboboxButtonProps, AsyncComboboxProps } from "./types";
 import { Input } from "../Input";
 import { VirtualizedScrollArea } from "../VirtualizedScrollArea";
 import { DropdownIndicator } from "../DropdownIndicator";
 import { debounce } from "../../helpers/debounce";
-import { PopoverContent, PopoverRoot, PopoverTrigger } from "../ui/popover";
 import { makeCss } from "../../helpers/makeCss";
 import { LuX } from "../Icons";
 
@@ -28,6 +36,7 @@ function AsyncComboboxComponent<OptionType>({
   isClearable = false,
   searchInputPlaceholder = "Search...",
   closeOnSelect = true,
+  insideDialog = false,
 }: AsyncComboboxProps<OptionType>) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -58,77 +67,83 @@ function AsyncComboboxComponent<OptionType>({
   );
 
   return (
-    <PopoverRoot
+    <Popover.Root
       open={isOpen}
       onOpenChange={e => setIsOpen(e.open)}
       positioning={{ sameWidth: true }}
       lazyMount
       unmountOnExit
     >
-      <AsyncComboboxButton controlCss={chakraStyles?.control}>
-        <Text lineClamp={1}>
-          {(value && getOptionLabel(value)) || placeholder}
-        </Text>
+      <Popover.Trigger asChild>
+        <AsyncComboboxButton controlCss={chakraStyles?.control}>
+          <Text lineClamp={1}>
+            {(value && getOptionLabel(value)) || placeholder}
+          </Text>
 
-        <Flex gap={2} align="center">
-          {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
+          <Flex gap={2} align="center">
+            {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
 
-          <Flex gap={1} align="center">
-            {isClearable && value && (
-              <Button
-                size="xs"
-                variant="ghost"
-                css={clearButtonCss}
-                onClick={e => {
-                  e.stopPropagation();
-                  onSelect(undefined);
-                }}
-              >
-                <Icon boxSize={4} as={LuX} />
-              </Button>
-            )}
-            <DropdownIndicator
-              customIcon={dropdownIndicator}
-              dropdownIndicatorCss={chakraStyles?.dropdownIndicator}
-            />
+            <Flex gap={1} align="center">
+              {isClearable && value && (
+                <Button
+                  size="xs"
+                  variant="ghost"
+                  css={clearButtonCss}
+                  onClick={e => {
+                    e.stopPropagation();
+                    onSelect(undefined);
+                  }}
+                >
+                  <Icon boxSize={4} as={LuX} />
+                </Button>
+              )}
+              <DropdownIndicator
+                customIcon={dropdownIndicator}
+                dropdownIndicatorCss={chakraStyles?.dropdownIndicator}
+              />
+            </Flex>
           </Flex>
-        </Flex>
-      </AsyncComboboxButton>
+        </AsyncComboboxButton>
+      </Popover.Trigger>
 
-      <PopoverContent width="auto" css={menuListCss}>
-        <Box px="10px" borderBottomWidth="1px" borderColor="inherit">
-          <Input
-            placeholder={searchInputPlaceholder}
-            onChange={onInputChange}
-            inputCss={chakraStyles?.input}
-          />
-        </Box>
+      <Portal disabled={insideDialog}>
+        <Popover.Positioner>
+          <Popover.Content width="auto" css={menuListCss}>
+            <Box px="10px" borderBottomWidth="1px" borderColor="inherit">
+              <Input
+                placeholder={searchInputPlaceholder}
+                onChange={onInputChange}
+                inputCss={chakraStyles?.input}
+              />
+            </Box>
 
-        <VirtualizedScrollArea
-          options={options}
-          value={value}
-          onSelect={selectedOption => {
-            onSelect(selectedOption);
-            if (closeOnSelect) setIsOpen(false);
-          }}
-          getOptionLabel={getOptionLabel}
-          getOptionValue={getOptionValue}
-          isLoading={isLoading}
-          isFetchingNextPage={isFetchingNextPage}
-          fetchNextPage={fetchNextPage}
-          hasNextPage={hasNextPage}
-          loadingElement={loadingElement}
-          emptyElement={emptyElement}
-          optionCss={chakraStyles?.option}
-          scrollAreaCss={chakraStyles?.scrollArea}
-          scrollbarCss={chakraStyles?.scrollbar}
-          scrollThumbCss={chakraStyles?.scrollThumb}
-          scrollCornerCss={chakraStyles?.scrollCorner}
-          loadingMessageCss={chakraStyles?.loadingMessage}
-          emptyMessageCss={chakraStyles?.emptyMessage}
-        />
-      </PopoverContent>
-    </PopoverRoot>
+            <VirtualizedScrollArea
+              options={options}
+              value={value}
+              onSelect={selectedOption => {
+                onSelect(selectedOption);
+                if (closeOnSelect) setIsOpen(false);
+              }}
+              getOptionLabel={getOptionLabel}
+              getOptionValue={getOptionValue}
+              isLoading={isLoading}
+              isFetchingNextPage={isFetchingNextPage}
+              fetchNextPage={fetchNextPage}
+              hasNextPage={hasNextPage}
+              loadingElement={loadingElement}
+              emptyElement={emptyElement}
+              optionCss={chakraStyles?.option}
+              scrollAreaCss={chakraStyles?.scrollArea}
+              scrollbarCss={chakraStyles?.scrollbar}
+              scrollThumbCss={chakraStyles?.scrollThumb}
+              scrollCornerCss={chakraStyles?.scrollCorner}
+              loadingMessageCss={chakraStyles?.loadingMessage}
+              emptyMessageCss={chakraStyles?.emptyMessage}
+            />
+          </Popover.Content>
+        </Popover.Positioner>
+      </Portal>
+    </Popover.Root>
   );
 }
 
@@ -167,11 +182,9 @@ const AsyncComboboxButton = memo(
     );
 
     return (
-      <PopoverTrigger asChild>
-        <Button {...rest} css={finalControlCss}>
-          {rest.children}
-        </Button>
-      </PopoverTrigger>
+      <Button {...rest} css={finalControlCss}>
+        {rest.children}
+      </Button>
     );
   }
 );

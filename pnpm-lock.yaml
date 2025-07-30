@@ -16,8 +16,8 @@ importers:
         version: 3.13.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@chakra-ui/react':
-        specifier: ^3.8.1
-        version: 3.19.1(@emotion/react@11.14.0(@types/react@18.3.1)(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^3.23.0
+        version: 3.23.0(@emotion/react@11.14.0(@types/react@18.3.1)(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@chromatic-com/storybook':
         specifier: ^3.2.4
         version: 3.2.4(react@19.1.0)(storybook@8.6.0)
@@ -112,8 +112,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@ark-ui/react@5.9.1':
-    resolution: {integrity: sha512-CPJtUy20x1kUAQ+8iPbgpq/RmqlF1Pfx91+8nHnYbR2dYI4mNKnxT8m7TGkoWT72W+P8YKYUehFJOPvspZqG2Q==}
+  '@ark-ui/react@5.18.2':
+    resolution: {integrity: sha512-vM2cuKSIe4mCDfqMc4RggsmiulXbicTjpZLf1IUXSHcUluMVn+z2k1minKI4X+Z7XSoKH0To7asxS0nJ1UPODA==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -201,8 +201,8 @@ packages:
     resolution: {integrity: sha512-Y3IR1cRnOxOCDvMmNiym7XpXQ93iGDDPHx+Zj+NM+rg0fBaShfQLkg+hKPaZCEvg5N/LeCo4+Rj/i3FuJsIQaw==}
     engines: {node: '>=6.9.0'}
 
-  '@chakra-ui/react@3.19.1':
-    resolution: {integrity: sha512-NxmJUIxy9Uqs2/2WbMBQjU2TdK2AdCO1AfoMz/kI3ia4ig1FJ5NzXRGSEnTGrdOfrqL8GJp4ztbPfc4yspqWsQ==}
+  '@chakra-ui/react@3.23.0':
+    resolution: {integrity: sha512-a5t5IY6xx+euxLE6+d9fyZTdYSkZFwlNgIO79FMFJnxHOINmbc8n2DWvmy3Qn8640GQoSvdD20lMYGwi+nM78w==}
     peerDependencies:
       '@emotion/react': '>=11'
       react: '>=18'
@@ -264,8 +264,20 @@ packages:
     cpu: [ppc64]
     os: [aix]
 
+  '@esbuild/aix-ppc64@0.25.8':
+    resolution: {integrity: sha512-urAvrUedIqEiFR3FYSLTWQgLu5tb+m0qZw0NBEasUeo6wuqatkMDaRT+1uABiGXEu5vqgPd7FGE1BhsAIy9QVA==}
+    engines: {node: '>=18'}
+    cpu: [ppc64]
+    os: [aix]
+
   '@esbuild/android-arm64@0.25.0':
     resolution: {integrity: sha512-grvv8WncGjDSyUBjN9yHXNt+cq0snxXbDxy5pJtzMKGmmpPxeAmAhWxXI+01lU5rwZomDgD3kJwulEnhTRUd6g==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [android]
+
+  '@esbuild/android-arm64@0.25.8':
+    resolution: {integrity: sha512-OD3p7LYzWpLhZEyATcTSJ67qB5D+20vbtr6vHlHWSQYhKtzUYrETuWThmzFpZtFsBIxRvhO07+UgVA9m0i/O1w==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [android]
@@ -276,8 +288,20 @@ packages:
     cpu: [arm]
     os: [android]
 
+  '@esbuild/android-arm@0.25.8':
+    resolution: {integrity: sha512-RONsAvGCz5oWyePVnLdZY/HHwA++nxYWIX1atInlaW6SEkwq6XkP3+cb825EUcRs5Vss/lGh/2YxAb5xqc07Uw==}
+    engines: {node: '>=18'}
+    cpu: [arm]
+    os: [android]
+
   '@esbuild/android-x64@0.25.0':
     resolution: {integrity: sha512-m/ix7SfKG5buCnxasr52+LI78SQ+wgdENi9CqyCXwjVR2X4Jkz+BpC3le3AoBPYTC9NHklwngVXvbJ9/Akhrfg==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [android]
+
+  '@esbuild/android-x64@0.25.8':
+    resolution: {integrity: sha512-yJAVPklM5+4+9dTeKwHOaA+LQkmrKFX96BM0A/2zQrbS6ENCmxc4OVoBs5dPkCCak2roAD+jKCdnmOqKszPkjA==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [android]
@@ -288,8 +312,20 @@ packages:
     cpu: [arm64]
     os: [darwin]
 
+  '@esbuild/darwin-arm64@0.25.8':
+    resolution: {integrity: sha512-Jw0mxgIaYX6R8ODrdkLLPwBqHTtYHJSmzzd+QeytSugzQ0Vg4c5rDky5VgkoowbZQahCbsv1rT1KW72MPIkevw==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [darwin]
+
   '@esbuild/darwin-x64@0.25.0':
     resolution: {integrity: sha512-DgDaYsPWFTS4S3nWpFcMn/33ZZwAAeAFKNHNa1QN0rI4pUjgqf0f7ONmXf6d22tqTY+H9FNdgeaAa+YIFUn2Rg==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@esbuild/darwin-x64@0.25.8':
+    resolution: {integrity: sha512-Vh2gLxxHnuoQ+GjPNvDSDRpoBCUzY4Pu0kBqMBDlK4fuWbKgGtmDIeEC081xi26PPjn+1tct+Bh8FjyLlw1Zlg==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [darwin]
@@ -300,8 +336,20 @@ packages:
     cpu: [arm64]
     os: [freebsd]
 
+  '@esbuild/freebsd-arm64@0.25.8':
+    resolution: {integrity: sha512-YPJ7hDQ9DnNe5vxOm6jaie9QsTwcKedPvizTVlqWG9GBSq+BuyWEDazlGaDTC5NGU4QJd666V0yqCBL2oWKPfA==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [freebsd]
+
   '@esbuild/freebsd-x64@0.25.0':
     resolution: {integrity: sha512-mrSgt7lCh07FY+hDD1TxiTyIHyttn6vnjesnPoVDNmDfOmggTLXRv8Id5fNZey1gl/V2dyVK1VXXqVsQIiAk+A==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [freebsd]
+
+  '@esbuild/freebsd-x64@0.25.8':
+    resolution: {integrity: sha512-MmaEXxQRdXNFsRN/KcIimLnSJrk2r5H8v+WVafRWz5xdSVmWLoITZQXcgehI2ZE6gioE6HirAEToM/RvFBeuhw==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [freebsd]
@@ -312,8 +360,20 @@ packages:
     cpu: [arm64]
     os: [linux]
 
+  '@esbuild/linux-arm64@0.25.8':
+    resolution: {integrity: sha512-WIgg00ARWv/uYLU7lsuDK00d/hHSfES5BzdWAdAig1ioV5kaFNrtK8EqGcUBJhYqotlUByUKz5Qo6u8tt7iD/w==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [linux]
+
   '@esbuild/linux-arm@0.25.0':
     resolution: {integrity: sha512-vkB3IYj2IDo3g9xX7HqhPYxVkNQe8qTK55fraQyTzTX/fxaDtXiEnavv9geOsonh2Fd2RMB+i5cbhu2zMNWJwg==}
+    engines: {node: '>=18'}
+    cpu: [arm]
+    os: [linux]
+
+  '@esbuild/linux-arm@0.25.8':
+    resolution: {integrity: sha512-FuzEP9BixzZohl1kLf76KEVOsxtIBFwCaLupVuk4eFVnOZfU+Wsn+x5Ryam7nILV2pkq2TqQM9EZPsOBuMC+kg==}
     engines: {node: '>=18'}
     cpu: [arm]
     os: [linux]
@@ -324,8 +384,20 @@ packages:
     cpu: [ia32]
     os: [linux]
 
+  '@esbuild/linux-ia32@0.25.8':
+    resolution: {integrity: sha512-A1D9YzRX1i+1AJZuFFUMP1E9fMaYY+GnSQil9Tlw05utlE86EKTUA7RjwHDkEitmLYiFsRd9HwKBPEftNdBfjg==}
+    engines: {node: '>=18'}
+    cpu: [ia32]
+    os: [linux]
+
   '@esbuild/linux-loong64@0.25.0':
     resolution: {integrity: sha512-fC95c/xyNFueMhClxJmeRIj2yrSMdDfmqJnyOY4ZqsALkDrrKJfIg5NTMSzVBr5YW1jf+l7/cndBfP3MSDpoHw==}
+    engines: {node: '>=18'}
+    cpu: [loong64]
+    os: [linux]
+
+  '@esbuild/linux-loong64@0.25.8':
+    resolution: {integrity: sha512-O7k1J/dwHkY1RMVvglFHl1HzutGEFFZ3kNiDMSOyUrB7WcoHGf96Sh+64nTRT26l3GMbCW01Ekh/ThKM5iI7hQ==}
     engines: {node: '>=18'}
     cpu: [loong64]
     os: [linux]
@@ -336,8 +408,20 @@ packages:
     cpu: [mips64el]
     os: [linux]
 
+  '@esbuild/linux-mips64el@0.25.8':
+    resolution: {integrity: sha512-uv+dqfRazte3BzfMp8PAQXmdGHQt2oC/y2ovwpTteqrMx2lwaksiFZ/bdkXJC19ttTvNXBuWH53zy/aTj1FgGw==}
+    engines: {node: '>=18'}
+    cpu: [mips64el]
+    os: [linux]
+
   '@esbuild/linux-ppc64@0.25.0':
     resolution: {integrity: sha512-NhyOejdhRGS8Iwv+KKR2zTq2PpysF9XqY+Zk77vQHqNbo/PwZCzB5/h7VGuREZm1fixhs4Q/qWRSi5zmAiO4Fw==}
+    engines: {node: '>=18'}
+    cpu: [ppc64]
+    os: [linux]
+
+  '@esbuild/linux-ppc64@0.25.8':
+    resolution: {integrity: sha512-GyG0KcMi1GBavP5JgAkkstMGyMholMDybAf8wF5A70CALlDM2p/f7YFE7H92eDeH/VBtFJA5MT4nRPDGg4JuzQ==}
     engines: {node: '>=18'}
     cpu: [ppc64]
     os: [linux]
@@ -348,8 +432,20 @@ packages:
     cpu: [riscv64]
     os: [linux]
 
+  '@esbuild/linux-riscv64@0.25.8':
+    resolution: {integrity: sha512-rAqDYFv3yzMrq7GIcen3XP7TUEG/4LK86LUPMIz6RT8A6pRIDn0sDcvjudVZBiiTcZCY9y2SgYX2lgK3AF+1eg==}
+    engines: {node: '>=18'}
+    cpu: [riscv64]
+    os: [linux]
+
   '@esbuild/linux-s390x@0.25.0':
     resolution: {integrity: sha512-XM2BFsEBz0Fw37V0zU4CXfcfuACMrppsMFKdYY2WuTS3yi8O1nFOhil/xhKTmE1nPmVyvQJjJivgDT+xh8pXJA==}
+    engines: {node: '>=18'}
+    cpu: [s390x]
+    os: [linux]
+
+  '@esbuild/linux-s390x@0.25.8':
+    resolution: {integrity: sha512-Xutvh6VjlbcHpsIIbwY8GVRbwoviWT19tFhgdA7DlenLGC/mbc3lBoVb7jxj9Z+eyGqvcnSyIltYUrkKzWqSvg==}
     engines: {node: '>=18'}
     cpu: [s390x]
     os: [linux]
@@ -360,8 +456,20 @@ packages:
     cpu: [x64]
     os: [linux]
 
+  '@esbuild/linux-x64@0.25.8':
+    resolution: {integrity: sha512-ASFQhgY4ElXh3nDcOMTkQero4b1lgubskNlhIfJrsH5OKZXDpUAKBlNS0Kx81jwOBp+HCeZqmoJuihTv57/jvQ==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [linux]
+
   '@esbuild/netbsd-arm64@0.25.0':
     resolution: {integrity: sha512-RuG4PSMPFfrkH6UwCAqBzauBWTygTvb1nxWasEJooGSJ/NwRw7b2HOwyRTQIU97Hq37l3npXoZGYMy3b3xYvPw==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [netbsd]
+
+  '@esbuild/netbsd-arm64@0.25.8':
+    resolution: {integrity: sha512-d1KfruIeohqAi6SA+gENMuObDbEjn22olAR7egqnkCD9DGBG0wsEARotkLgXDu6c4ncgWTZJtN5vcgxzWRMzcw==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [netbsd]
@@ -372,8 +480,20 @@ packages:
     cpu: [x64]
     os: [netbsd]
 
+  '@esbuild/netbsd-x64@0.25.8':
+    resolution: {integrity: sha512-nVDCkrvx2ua+XQNyfrujIG38+YGyuy2Ru9kKVNyh5jAys6n+l44tTtToqHjino2My8VAY6Lw9H7RI73XFi66Cg==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [netbsd]
+
   '@esbuild/openbsd-arm64@0.25.0':
     resolution: {integrity: sha512-21sUNbq2r84YE+SJDfaQRvdgznTD8Xc0oc3p3iW/a1EVWeNj/SdUCbm5U0itZPQYRuRTW20fPMWMpcrciH2EJw==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [openbsd]
+
+  '@esbuild/openbsd-arm64@0.25.8':
+    resolution: {integrity: sha512-j8HgrDuSJFAujkivSMSfPQSAa5Fxbvk4rgNAS5i3K+r8s1X0p1uOO2Hl2xNsGFppOeHOLAVgYwDVlmxhq5h+SQ==}
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [openbsd]
@@ -384,8 +504,26 @@ packages:
     cpu: [x64]
     os: [openbsd]
 
+  '@esbuild/openbsd-x64@0.25.8':
+    resolution: {integrity: sha512-1h8MUAwa0VhNCDp6Af0HToI2TJFAn1uqT9Al6DJVzdIBAd21m/G0Yfc77KDM3uF3T/YaOgQq3qTJHPbTOInaIQ==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [openbsd]
+
+  '@esbuild/openharmony-arm64@0.25.8':
+    resolution: {integrity: sha512-r2nVa5SIK9tSWd0kJd9HCffnDHKchTGikb//9c7HX+r+wHYCpQrSgxhlY6KWV1nFo1l4KFbsMlHk+L6fekLsUg==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [openharmony]
+
   '@esbuild/sunos-x64@0.25.0':
     resolution: {integrity: sha512-bxI7ThgLzPrPz484/S9jLlvUAHYMzy6I0XiU1ZMeAEOBcS0VePBFxh1JjTQt3Xiat5b6Oh4x7UC7IwKQKIJRIg==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [sunos]
+
+  '@esbuild/sunos-x64@0.25.8':
+    resolution: {integrity: sha512-zUlaP2S12YhQ2UzUfcCuMDHQFJyKABkAjvO5YSndMiIkMimPmxA+BYSBikWgsRpvyxuRnow4nS5NPnf9fpv41w==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [sunos]
@@ -396,14 +534,32 @@ packages:
     cpu: [arm64]
     os: [win32]
 
+  '@esbuild/win32-arm64@0.25.8':
+    resolution: {integrity: sha512-YEGFFWESlPva8hGL+zvj2z/SaK+pH0SwOM0Nc/d+rVnW7GSTFlLBGzZkuSU9kFIGIo8q9X3ucpZhu8PDN5A2sQ==}
+    engines: {node: '>=18'}
+    cpu: [arm64]
+    os: [win32]
+
   '@esbuild/win32-ia32@0.25.0':
     resolution: {integrity: sha512-eSNxISBu8XweVEWG31/JzjkIGbGIJN/TrRoiSVZwZ6pkC6VX4Im/WV2cz559/TXLcYbcrDN8JtKgd9DJVIo8GA==}
     engines: {node: '>=18'}
     cpu: [ia32]
     os: [win32]
 
+  '@esbuild/win32-ia32@0.25.8':
+    resolution: {integrity: sha512-hiGgGC6KZ5LZz58OL/+qVVoZiuZlUYlYHNAmczOm7bs2oE1XriPFi5ZHHrS8ACpV5EjySrnoCKmcbQMN+ojnHg==}
+    engines: {node: '>=18'}
+    cpu: [ia32]
+    os: [win32]
+
   '@esbuild/win32-x64@0.25.0':
     resolution: {integrity: sha512-ZENoHJBxA20C2zFzh6AI4fT6RraMzjYw4xKWemRTRmRVtN9c5DcH9r/f2ihEkMjOW5eGgrwCslG/+Y/3bL+DHQ==}
+    engines: {node: '>=18'}
+    cpu: [x64]
+    os: [win32]
+
+  '@esbuild/win32-x64@0.25.8':
+    resolution: {integrity: sha512-cn3Yr7+OaaZq1c+2pe+8yxC8E144SReCQjN6/2ynubzYjvyqZjTXfQJpAcQpsdJq3My7XADANiYGHoFC69pLQw==}
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
@@ -442,14 +598,14 @@ packages:
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@floating-ui/core@1.7.0':
-    resolution: {integrity: sha512-FRdBLykrPPA6P76GGGqlex/e7fbe0F1ykgxHYNXQsH/iTEtjMj/f9bpY5oQqbjt5VgZvgz/uKXbGuROijh3VLA==}
+  '@floating-ui/core@1.7.3':
+    resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
 
-  '@floating-ui/dom@1.6.13':
-    resolution: {integrity: sha512-umqzocjDgNRGTuO7Q8CU32dkHkECqI8ZdMZ5Swb6QAM0t5rnlrN3lGo1hdpscRd3WS8T6DKYK4ephgIH9iRh3w==}
+  '@floating-ui/dom@1.7.2':
+    resolution: {integrity: sha512-7cfaOQuCS27HD7DX+6ib2OrnW+b4ZBwDNnCcT0uTyidcmyWb03FnQqJybDBoCnpdxwBSfA94UAYlRCt7mV+TbA==}
 
-  '@floating-ui/utils@0.2.9':
-    resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+  '@floating-ui/utils@0.2.10':
+    resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -471,11 +627,11 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@internationalized/date@3.8.0':
-    resolution: {integrity: sha512-J51AJ0fEL68hE4CwGPa6E0PO6JDaVLd8aln48xFCSy7CZkZc96dGEGmLs2OEEbBxcsVZtfrqkXJwI2/MSG8yKw==}
+  '@internationalized/date@3.8.2':
+    resolution: {integrity: sha512-/wENk7CbvLbkUvX1tu0mwq49CVkkWpkXubGel6birjRPyo6uQ4nQpnq5xZu823zRCwwn82zgHrvgF1vZyvmVgA==}
 
-  '@internationalized/number@3.6.1':
-    resolution: {integrity: sha512-UVsb4bCwbL944E0SX50CHFtWEeZ2uB5VozZ5yDXJdq6iPZsZO5p+bjVMZh2GxHf4Bs/7xtDCcPwEa2NU9DaG/g==}
+  '@internationalized/number@3.6.3':
+    resolution: {integrity: sha512-p+Zh1sb6EfrfVaS86jlHGQ9HA66fJhV9x5LiE5vCbZtXEHAuhcmUZUdZ4WrFpUBfNalr2OkAJI5AcKEQF+Lebw==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -539,8 +695,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@pandacss/is-valid-prop@0.53.6':
-    resolution: {integrity: sha512-TgWBQmz/5j/oAMjavqJAjQh1o+yxhYspKvepXPn4lFhAN3yBhilrw9HliAkvpUr0sB2CkJ2BYMpFXbAJYEocsA==}
+  '@pandacss/is-valid-prop@0.54.0':
+    resolution: {integrity: sha512-UhRgg1k9VKRCBAHl+XUK3lvN0k9bYifzYGZOqajDid4L1DyU813A1L0ZwN4iV9WX5TX3PfUugqtgG9LnIeFGBQ==}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -1129,212 +1285,218 @@ packages:
   '@vue/shared@3.5.13':
     resolution: {integrity: sha512-/hnE/qP5ZoGpol0a5mDi45bOd7t3tjYJBjsgCsivow7D48cJeV5l05RD82lPqi7gRiphZM37rnhW1l6ZoCNNnQ==}
 
-  '@zag-js/accordion@1.12.2':
-    resolution: {integrity: sha512-EoTVa4Tppgp3bfaOhBrgSyOUeeGWFmXn2gGT9AuMq0x46sc4xw5IsRveYPHwBzifrTE3tAKVIZBA5rFoTaA43Q==}
+  '@zag-js/accordion@1.21.0':
+    resolution: {integrity: sha512-YuuQs72AmA52Hn30l3Q8KyFDb75g9glFV7AZkUq8V52vtUsdz2PfJye1FPD06M2dnnhHjEbdTQch6Qwwe5ApBA==}
 
-  '@zag-js/anatomy@1.12.2':
-    resolution: {integrity: sha512-avPmEivu4QFAICJ4rogt9ZFMp4trwva11jQfIAHXYDDL6YoF58z69129eLuyVSuSjEQ9EOzxg+fxMjXH2xm7yQ==}
+  '@zag-js/anatomy@1.21.0':
+    resolution: {integrity: sha512-wL5mmewTR8FJd91ZbfwiXpoMJbaQr1F1fFDel5BJgQukScNzd53HS5zhYb15eqJIOR6tlk/itPiJkxPp/+HdcQ==}
 
-  '@zag-js/angle-slider@1.12.2':
-    resolution: {integrity: sha512-pd62FEJZmnJAjrUcV5J+IayRGrUuMp90EPf5Sd2nwlBoxarmz6mSYr8jpeAPSjeT73rYkph8D+USM4qc3xHanQ==}
+  '@zag-js/angle-slider@1.21.0':
+    resolution: {integrity: sha512-1d4VgxYv4LQL8PtjkYqvPlx7DsZpG0CaB1woOhPZSva7jmo0WKvTAUZf2pbk9ajTm+iA4C3xHRbVRM6s2Vy/lg==}
 
-  '@zag-js/aria-hidden@1.12.2':
-    resolution: {integrity: sha512-xhtgOYYzTztQNKmROpEjkbeVbbvqm70595kOVsQOPhaWKVBK4EySLhYEeTRCjLmK9jVwUWQAETISqyA2za9AfQ==}
+  '@zag-js/aria-hidden@1.21.0':
+    resolution: {integrity: sha512-x78v+v/rNYoCFHeHK343kapdevywctNUEmPGdiH2BT3BI7uXZtv270WkD9OgdEOuEKuu18vbZ9TGYO9FGG8Ijw==}
 
-  '@zag-js/auto-resize@1.12.2':
-    resolution: {integrity: sha512-LhkL85yuLsIS4t3+XjpJZmZb1hAG9pTf1JIRNQ5HtmoCiOf/wxX73SJdOeQBKfzm1w8Hz5C6skNSxgJuYo0Wzg==}
+  '@zag-js/auto-resize@1.21.0':
+    resolution: {integrity: sha512-bQZUC5tP5SFdVcZ8vTA2tQy4B/YphwJaKCkG0Y6lHscpcPcZK7+kgBJaRj4XQuon7aKmgECLlD/da5PNNAdOJg==}
 
-  '@zag-js/avatar@1.12.2':
-    resolution: {integrity: sha512-zAgxzx6dzH2Kds0hGgPBGm1wWjwurn3CojdID6V9awHq+u5aDf/HIKDOIdjaNlTPdXtBeWrzJaKQiqHmNGrong==}
+  '@zag-js/avatar@1.21.0':
+    resolution: {integrity: sha512-bRkEaoSbJ8Dae246cc0ShmXLBWDcJIcI1KoncST4ClYwCqyMIj4s/zgr1+XUlyz3imz6n1RhTeT2jKcBqFGC6Q==}
 
-  '@zag-js/carousel@1.12.2':
-    resolution: {integrity: sha512-5nxNzar7wwGJIMV2As2/a2HLju8s7XahaLuq8BCiLQlhDN0N894Y2JazXm1gCthS7FdMlxa433G7bjYrxMYw9Q==}
+  '@zag-js/carousel@1.21.0':
+    resolution: {integrity: sha512-MpGLu6xVyPGDk5OupyTFywb85xrqCEs8qR0FpOH5eyNp3lvx/iLVNMcI+KTk5YTlZWQmDCyT86wBLMlf6SfTvw==}
 
-  '@zag-js/checkbox@1.12.2':
-    resolution: {integrity: sha512-9kkmo9lz0eQcIkEmPCbevv6cl5fNRhMvyGKgsCENbaeU2VpntYlF8eRn81S2/7naE0JpXCGq+7jMgHHjKhNHeA==}
+  '@zag-js/checkbox@1.21.0':
+    resolution: {integrity: sha512-lY9DYOvz0Cbdi3jxudv/nj9cpaGk784RiookL7QHr1u/Z/sUSNj5gUNpsIkSzZmT054Tu0t0jhtTt8vScq8DmQ==}
 
-  '@zag-js/clipboard@1.12.2':
-    resolution: {integrity: sha512-lANTh8XOPmEiFUgVfd8+ORdpHC7grPImB3X71Kj1a2hfvEDLI/INop379aNsncboCdJkWp0slRzyquHSOgfaTA==}
+  '@zag-js/clipboard@1.21.0':
+    resolution: {integrity: sha512-hJl4o8itwvVW3Wz5Zd/OQjR2OhXKdjHqIUuvPGbKcKEWxk6X9SDISslmCH9FbKVGVDgM6q5UypaYwwJZ1SsONQ==}
 
-  '@zag-js/collapsible@1.12.2':
-    resolution: {integrity: sha512-vmYHRhWex2LkcNRvg3oAzhmnF5gR+vBLfRpP8vu3hsX4zAn6GS2GggVeH3prBnNAIsErA4ech29BzqAhp5xeLA==}
+  '@zag-js/collapsible@1.21.0':
+    resolution: {integrity: sha512-6vdZyZauYdiedlh6hcsYDF5Q5eC/vWstbP88PzeCFSxV5hKCJKxENOTd6d4OXJuYeWGkUABdgOl5MLIZVHrYCA==}
 
-  '@zag-js/collection@1.12.2':
-    resolution: {integrity: sha512-IVEXMBguC/QljCT6L5DsrSYUWvi+SWacGweDm12fckMEwPBpGOxv+dR0yqcjaeNEDuTkT0WHeZaWI/0TNV533g==}
+  '@zag-js/collection@1.21.0':
+    resolution: {integrity: sha512-wJYmazXIFnr4/azWI9yeYrK3rB1d0KoaUMhOkrmGnwfp3c0U6rrUL54RuCMeyZ9WmzIUBhjZ5zc+385nsXwlPA==}
 
-  '@zag-js/color-picker@1.12.2':
-    resolution: {integrity: sha512-HXE5iyQaM7KOyu1SXcVJdDqtuZ+GRpdP8CaJVTz4RkBqaFBd3jrMVr3eW/Hv5N3b7v3vsfGHXXLchte+tcVpnQ==}
+  '@zag-js/color-picker@1.21.0':
+    resolution: {integrity: sha512-vovzxNdINPloc5SCBBwZX1/qQnvpGAs++82GUDBGdrdai/ayBYUMkP6Hd0OiStkEDunECpfDv4Qff3kobUIgpg==}
 
-  '@zag-js/color-utils@1.12.2':
-    resolution: {integrity: sha512-ZfshXAqaHhgo8tieADVZ99AoUTn3IK+K8UZ2cYmiTHkrmXGkXQUGysdqsCYkPE/nzC3CmIXLK4LPj5tHYJVydQ==}
+  '@zag-js/color-utils@1.21.0':
+    resolution: {integrity: sha512-phUCKXeDvgnSUdLtjF6oE7HRmFEqNPkKOH2Nkhlnt9Hi8uxW9xhG3Haix7DaBhCN2DLRZqpsULpCA5eYV+S8IA==}
 
-  '@zag-js/combobox@1.12.2':
-    resolution: {integrity: sha512-PaNSh27057I+kwrfyUWSo0K54hwWK6oP+d0NPez9mrQRABj1wVbPc8R5ouseZqI6LL0zRGc4oZB7Inq1o5usWw==}
+  '@zag-js/combobox@1.21.0':
+    resolution: {integrity: sha512-aVEbcRk2JilDhGJjAmmO1YI4B8lNOeqgDxsbdWDDcgivHOzo1b5Rt+5kfyodXVOlzQAPkdq04b5/xLR9eurnJw==}
 
-  '@zag-js/core@1.12.2':
-    resolution: {integrity: sha512-deECf4FGOSjmD+f3Y116D9dHYs4NP87GBtQgQQ9oCXP8SOCR3A9gSkUGcFU+cQq2tNA5I1F9KqUElc0fDYfh4w==}
+  '@zag-js/core@1.21.0':
+    resolution: {integrity: sha512-ERQklS65W2wZD7Xvm/w/7u1nL5ZcTwK6Ppwat8EfAidBGGUB6YoZLW9Vu3I04g5SPhRmDmuIXhkTqKgIbXUUYg==}
 
-  '@zag-js/date-picker@1.12.2':
-    resolution: {integrity: sha512-su741tKtQgGQ6KwTE2+oOIgGezOq/cQQyIWXUF0jkEyvsSPio06LRel/cvho3QO9oMzR6W7pus5fMOQPPO9Omw==}
+  '@zag-js/date-picker@1.21.0':
+    resolution: {integrity: sha512-pfZXvjuF89NfV6CTc4BayPEAujysJ5vRSVFArsDbz5oKB8j5PCRtvHEHo0WWwgF7Jr40CTmiG68wzuDMCdXq3A==}
     peerDependencies:
       '@internationalized/date': '>=3.0.0'
 
-  '@zag-js/date-utils@1.12.2':
-    resolution: {integrity: sha512-FTpwgfk+xoHLQEHEVYO1yoXwgNdwTVlA4XX/IhSqj+3KOTXIu60SymX63fE/rqWzayXmH5m8doP7LGW758u1mg==}
+  '@zag-js/date-utils@1.21.0':
+    resolution: {integrity: sha512-4H0Z/zQFfpTL45rUZg3tH4lJQmsV6PDTml/ptj9I8/1Mxel5eOwBdmDfQ7owm47H7MjgUvm7CqvYT9987b0KXA==}
     peerDependencies:
       '@internationalized/date': '>=3.0.0'
 
-  '@zag-js/dialog@1.12.2':
-    resolution: {integrity: sha512-Eqs/fpFc9wzYQQne4VOh8qivxuJyEcUR+MO/onTSFVV/AaJfXXowsXk7kAzcQrNzbvLn+yuTOCYFlh4QsPlLXA==}
+  '@zag-js/dialog@1.21.0':
+    resolution: {integrity: sha512-nAKoCnpd40UeprYl2JazDZVL3r5uHD1L4dUEeY9GlO4CINYBvt7jntVJn1xLGm1tyc4S+kFUSgI1y1DXlS+8KQ==}
 
-  '@zag-js/dismissable@1.12.2':
-    resolution: {integrity: sha512-YIuUx+9mzzf2x9gWayt6T2e2N6nyrlBqzkJfwXJ9R3wEz065AW5X1PeKGGrvYlojPok1yNAaDq6mFL6Rqb6IVg==}
+  '@zag-js/dismissable@1.21.0':
+    resolution: {integrity: sha512-+BewcHUJvNCRWZ4lbUqABW6EwJRM2hxf65OPcN9XCMFCAoHbezdqHXYgtU7LRvYUJyxbvLPNeUrww3D6vcyhmA==}
 
-  '@zag-js/dom-query@1.12.2':
-    resolution: {integrity: sha512-UvFHQbkX6zscdYnMYc5TnrV/FkKlb4dMombXO2rD20NStU9gxb7uYtq91aPSO2x7aVCwNWuPWRb1nFAYGFBOvw==}
+  '@zag-js/dom-query@1.21.0':
+    resolution: {integrity: sha512-P7Aeb1hfd5GtmTO1u0HkyVUrhFYgm94NxJhqufF2W+xByz/XspDcdy0l5pHFGsK9Urvh69S4tCx5YVh0MhZYgQ==}
 
-  '@zag-js/editable@1.12.2':
-    resolution: {integrity: sha512-kL6LulJKFOU8riW4tzM5QhAm6I6+zjfw28FjhOny7r4Mtc0HRQUJfh6WzlBcq72fqxvvf8J2OuVq2yeWPE9XBw==}
+  '@zag-js/editable@1.21.0':
+    resolution: {integrity: sha512-28QivG0KU8OCgsldxi6rVLuqr36cNiuy1vTEzcoc61Ue6B1D4rCBAQaAJedl5r1ki+Vzrjl3uP1ApoUwV3S/JA==}
 
-  '@zag-js/file-upload@1.12.2':
-    resolution: {integrity: sha512-JOjW4JGwRKVpDjZcLCU/qEAVNeUJbb9hYdmAvIAtBmf34VL3q17jsCKDvIZsxasSI0cOhuROhtWhnPXK0/lj6A==}
+  '@zag-js/file-upload@1.21.0':
+    resolution: {integrity: sha512-uH55bwFKcftpUYACyHT/8xB2bJdDqe3NM3JNCEYplxvn4scvDEzr2jpyVEmqUeOfrdNnyTuthNnL2hJjm4e+4A==}
 
-  '@zag-js/file-utils@1.12.2':
-    resolution: {integrity: sha512-E28mzjlG53RyApOGrc+gELXcrUpm6lIyWTo0ScJ7Nqlu5fe2Cy69bHyULECz3cI7/XK454yRA5Le7DifbyJQwQ==}
+  '@zag-js/file-utils@1.21.0':
+    resolution: {integrity: sha512-gEWmz2ryuJMyAq3kg13TTmh5wR4Ft7d4Lb81ZeHiPpI/IwW67QrpBN0AKw3FBTmAuYBpK/dEc5iyETNPPrPTvg==}
 
-  '@zag-js/floating-panel@1.12.2':
-    resolution: {integrity: sha512-L7nxKWQEg4LB+FTwcqs5qlWaYJ8ZA3aDrZXtxqDtqltGeICAlV/0CkjwNhdX4DyGt4VLgLLYqE3Ciq0tJ1PO9g==}
+  '@zag-js/floating-panel@1.21.0':
+    resolution: {integrity: sha512-PVszFoJ53Iqmx+JD7WQFydRpp6spZFP1bCuBaHSoI044Z57UJ+rAkSlOGpoRHwpSROO9FPIpeqoTgy/kOCNmOA==}
 
-  '@zag-js/focus-trap@1.12.2':
-    resolution: {integrity: sha512-YhlkuxvRcmVhWZa08GqGbqkbL2M0Ae72+NVjoFhlpourgERsatJjvQ8SCx5SEpPcVQQc86Zh+4QAHrdQ4//20g==}
+  '@zag-js/focus-trap@1.21.0':
+    resolution: {integrity: sha512-O00KOYOVPWWv/eATfeZxRTEvUTLv+eHJH6ynqOAvQ7RXmsECst4QlL9UJwStrTKn/r2gxhj+UZMwHMEwTGNeVg==}
 
-  '@zag-js/focus-visible@1.12.2':
-    resolution: {integrity: sha512-rXr8+ngjbSYDZDzpP3ckCvaqodvlOuIjfKYUnTYM717l5rYCIrn2vFF+ncDdelcWRBRv5nq7o79vjsqKU+1Bww==}
+  '@zag-js/focus-visible@1.21.0':
+    resolution: {integrity: sha512-FNA7H4hyoQRBKpDkJWlBrFeyJpVphATgjvjhNXatCrrfa4F7VZiGnu3RGhEcnaw4b3bNkFnYLdRd+9XX7JHuoA==}
 
-  '@zag-js/highlight-word@1.12.2':
-    resolution: {integrity: sha512-M3bX0EeFZ5mh49B6IKTQKyPUZPMmO/7gImPr/1OmffUHUzr8EQT6M6WJBoDGB3dvGcPoahbNuGoZd3Jw48+1mA==}
+  '@zag-js/highlight-word@1.21.0':
+    resolution: {integrity: sha512-bJIwPtcAMfEP6c5R/a3ZQG1V5FvYBP9onMVwKranAWPqOUj1/Y6lQ2gV/K4s7sw3VnpoXmy+5VxwfOPU/QWU5Q==}
 
-  '@zag-js/hover-card@1.12.2':
-    resolution: {integrity: sha512-lxReLOp0kB6roMiZHz3yigKjqX541x9axIyWzwfeZmZ1Hqg46hoh5OYi0NclQ2zEFw6BMNLAc8ZVoWToBQSfTg==}
+  '@zag-js/hover-card@1.21.0':
+    resolution: {integrity: sha512-G4+/lnc4ATU7BVHlnQ77fNC1b2k9dcbIeaBPMcdnc+g+CtqNhNTBM+rMb2OpSE9IOuFwqld5EK1v4tW8+6qOwQ==}
 
-  '@zag-js/i18n-utils@1.12.2':
-    resolution: {integrity: sha512-P3wuPeFXWC8LW+ZzSdmaRLsSDlrQT0FU7Sx3z4IkZXr8mV+QMg5fh95dmXNIDkEcG6zL7PHwt2ho80m/KuFcfA==}
+  '@zag-js/i18n-utils@1.21.0':
+    resolution: {integrity: sha512-5E+vVsL6zcfaLlSGSnB3olXIEzmZ4C5L53+jSnx8LqmIcuTEc8I8mvBhcpTiDVHKrH6jG3jHE+6BvdyJ9SWQiA==}
 
-  '@zag-js/interact-outside@1.12.2':
-    resolution: {integrity: sha512-ii7ZKufyF+kDr2WcwVgGZZQXrd/GmNYeJ4heR/RO7q3PxYv9le+GFq3evbtBhhVQ/0P3IqZZ8bZL0f/7qQyKKg==}
+  '@zag-js/interact-outside@1.21.0':
+    resolution: {integrity: sha512-Yo4lojJYJZ4fjavOz+VbdpZlcDFAOlrOX+rKss3BNKfaffmhCklx/8Zej7WFStPCAv8AOzZ+fE4EhH/w+uPXEw==}
 
-  '@zag-js/listbox@1.12.2':
-    resolution: {integrity: sha512-EczE94iUzcKIqZhQ5SqaSiLkH88M+APrOp+xI+kHSDUt0SD4TQur6O/ALKFfBPT8Kip5iPK3Er5+t7PkC1wnvg==}
+  '@zag-js/json-tree-utils@1.21.0':
+    resolution: {integrity: sha512-OSyIxdWUVWD44hCvSgR+hP0q9nJOejS1VI9P4dbphQfcLNVvntAfwrb1os0DUR++UKBHyhAYwKVuVdThYbkJYQ==}
 
-  '@zag-js/live-region@1.12.2':
-    resolution: {integrity: sha512-yu1a7jKoheMmeiU4cYRqod2u7JiD1o7Cgi9af1PSBcU9vFJTUpIDJErRCI79vuPSugFvpP38Cjtc3LlgE3uGyA==}
+  '@zag-js/listbox@1.21.0':
+    resolution: {integrity: sha512-XByByVOj4MA/ELcHgtkiS+jP5b2C2wXHmpCeCUp2jYKx3ZiL8al9y7yYLVBEDHRXsAR44UAQuJPIjDsCgtgkJg==}
 
-  '@zag-js/menu@1.12.2':
-    resolution: {integrity: sha512-Ja2RfNLHZOIBuSDRu7lS+0dfRfOov0xdA2RU8yZJBJupZBKT49tBEktJfWNr1YV3GDdlPoGSFVL2ogjNxtzDXQ==}
+  '@zag-js/live-region@1.21.0':
+    resolution: {integrity: sha512-buHwgHkW95c8gYtk53AEmjS8r72AtDFRfD3l3OgMsBE/dnYYgM3bfpiZL3pP0IBK+WPKDJxS8TMj7Q7pBiQebQ==}
 
-  '@zag-js/number-input@1.12.2':
-    resolution: {integrity: sha512-YesH2jaFwjRxfqdXUfjGgaAcLjoPPCYkltdC7wEBCNgAqU8UKZ+tktVHnfzZoLZiKqkQ9TXXOC4Ic6cmjXC2UQ==}
+  '@zag-js/menu@1.21.0':
+    resolution: {integrity: sha512-usD3MQTobKlzplY3j9IZxiq6cGHUZ/N8qmmi+EKvo0xpsEimhyE+FHr9XHqmFfGsxcH/yvyuFkvEjaUrF3qsqQ==}
 
-  '@zag-js/pagination@1.12.2':
-    resolution: {integrity: sha512-5ly8eQg/58RV0blov46oZ5vhudWMxH+9rZw0LA6Hci3lGrmDjEezOkKmN0Om8PV+xoYcrCl0nnptxALChHCNSQ==}
+  '@zag-js/number-input@1.21.0':
+    resolution: {integrity: sha512-77Z2tTI+PcOCaoxNoteXfLaZA0zxObrOxqAjTgwapM88kn9oGNU4Ln6AYMJqdIDZJtQWdLBGjJwi3R8h8irpNQ==}
 
-  '@zag-js/pin-input@1.12.2':
-    resolution: {integrity: sha512-cRg4FOpL9wTGRztx+qk1Sx8aakXsGw7B8+AnboT12zcW64pYF72hqJUSrz13S2um7MhDJskPrdOetal4GBqWFw==}
+  '@zag-js/pagination@1.21.0':
+    resolution: {integrity: sha512-d3zXD17CTSsA3o+5oJB1CujEoYNph58/DHFwVFDRgH5lB5K1vBxgas+JxJ2++uhouI8BH5fz7w7X3Wr6kXEHIw==}
 
-  '@zag-js/popover@1.12.2':
-    resolution: {integrity: sha512-wOYf4eNXWoZlBwNlF4EGYHsaGOrGsVIVVteCB/xSr9AXBrTF7CQiSwH445+m7u0KBZnDfsY61JweNx5U9FAmKA==}
+  '@zag-js/password-input@1.21.0':
+    resolution: {integrity: sha512-paiZbGEBlkoas08qwrpQVUuZXG8efgti/u464eZR6x7drv6PVc9igWxfqFJXL378I/cEUjj5MvYdk9yMbLJcHg==}
 
-  '@zag-js/popper@1.12.2':
-    resolution: {integrity: sha512-FoUx39kjStc7CUEtxCfcIlrQ0Oq9HH2As9HKz9b4IMwBg3u39sVP2XtHUQdHqNzMoscSsRtAqaTHMmRBz++GIA==}
+  '@zag-js/pin-input@1.21.0':
+    resolution: {integrity: sha512-Ut3tZ4rDhjopTTdMcNm3BIpTlAu3NR1Uw1w+WM5NTh5C7Vn+GZAL5dP1dahB/t29yqhTZY4ssMxZfDofBpfMHw==}
 
-  '@zag-js/presence@1.12.2':
-    resolution: {integrity: sha512-V2oNmwe3qYXxAi9Cx1y+RAdb75fexJA+m0VgmO2R5tL4DIFA/CcHB5lc4yPxUzYw2fNwVZGd6F6eUX0Ys0Sp3A==}
+  '@zag-js/popover@1.21.0':
+    resolution: {integrity: sha512-crDELtzKZo0hSXA1N8LFrleq/9QlSGRlUNNb0DoUW0/gFFBG3wsrLayn2gWHweeM9HBG60ZnZnBW//pXaS32sg==}
 
-  '@zag-js/progress@1.12.2':
-    resolution: {integrity: sha512-B1jgP7iKYV3CwI33bnXPG4Hg7dr/9xl3FkYoM7hk8m5gD4b3zW1eJN8vQejKbARbxki0w/sv3r2DHCF14S7yMQ==}
+  '@zag-js/popper@1.21.0':
+    resolution: {integrity: sha512-PWLF6kY4f88CBM+nGebPJMB3DsXcj8NDuiLdljrGL4j1x18t1dhNY1IIdNDBueJCF0VL0uJrGwcxMZg6FGReSA==}
 
-  '@zag-js/qr-code@1.12.2':
-    resolution: {integrity: sha512-t5dByXkS3dBnhv2IS4GStAnVg0Ybm1gtWprspL97ndAHabE7tV1qwPaUV42cT16gFE6/l3aFtbjC+s0fVEFFsA==}
+  '@zag-js/presence@1.21.0':
+    resolution: {integrity: sha512-Fz7nhaoYbfbV6c8ovCnv75HaCD5yvU7NUxtR20wUYBPPx5nvdOViUsU+4ih/HXUcBHsQUW6teIfkf9Gb7xbCgQ==}
 
-  '@zag-js/radio-group@1.12.2':
-    resolution: {integrity: sha512-4QsVREhwP0colnrsaWJIP1jjIZGqfKO7grh3K+gI4vmzD3hU9c2F6ZeRLdzdkDyK+CXcE9MYkDW0aJKxEsJr4Q==}
+  '@zag-js/progress@1.21.0':
+    resolution: {integrity: sha512-AMZsoURX2jotI2KrODE4jw7e9FPslKIZCO/guh11D6A9gvSM3ECRe2gKdAcLjP+UKxayS8MkNPhD51bAYCfkbQ==}
 
-  '@zag-js/rating-group@1.12.2':
-    resolution: {integrity: sha512-n6DJCdtu2hLhZDzFQd0iS7dXL0LJlCVVAFX1pPFrLAl1QQLDZLHftGZAsTnHpF2xAgrOyvzm1p+DPB5arQVcEw==}
+  '@zag-js/qr-code@1.21.0':
+    resolution: {integrity: sha512-mCe8qp+F9ZKS9Py/CkXmfAGMc9h86UM9NkXOWwU880az885Y0Ld8UaHmyWO3AAJDWPYBkTJKq+tEqNTCKx1dyw==}
 
-  '@zag-js/react@1.12.2':
-    resolution: {integrity: sha512-kjMP2ikLNbHSEhkrUkg20mtWyYzhOIIBMR4DXlS3nBnB2vNUGq71iUf45xgO7qq7jF/ANOazT5cKJkvBFzs7qw==}
+  '@zag-js/radio-group@1.21.0':
+    resolution: {integrity: sha512-TCb3RjiNhgFWzwHUns9S+z6rNyXng2kexFPmD1ycyEO1efHAb83J5aZv5ShGX/05YCZpwVMf3WsyGEV8p8c/1g==}
+
+  '@zag-js/rating-group@1.21.0':
+    resolution: {integrity: sha512-TBjSGfHT06Ehj3lBACVB3pOnxmb+jvJQgBQUZtFYFMae+gtuKItwx9qleH24vuyqKT/DI3amQhbvpi+bUK9CVA==}
+
+  '@zag-js/react@1.21.0':
+    resolution: {integrity: sha512-yTqpMJ2c6Sf/KqXmyq3yJg1W/VZhYn1YNBRKWYJYT/kUDnoOpyqIBbmwka0dZi/hnWdhK1pzV0UUa7oV4IWa/A==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@zag-js/rect-utils@1.12.2':
-    resolution: {integrity: sha512-GM1nRRsUDhlYULdouSQ/Hwow9Wy2dJUeK5qX/CruRkkkUKNkcAB97rv8oxZtTLBBa0KemD5X/JwY4W3rfY1mgw==}
+  '@zag-js/rect-utils@1.21.0':
+    resolution: {integrity: sha512-ulzlyupj7QnM5NdAHSy2uKscVanjApxcC5/FRu+ooUZRaK1A8BMqep6r7lsVB8qTz0l1ssjLqCJPGNzP3PB3ug==}
 
-  '@zag-js/remove-scroll@1.12.2':
-    resolution: {integrity: sha512-SYMGGlwnh2VCnae5pEcCgxhVqlCAquqclxp9KVbuypUIZ8Tby1cP78aWwQ5i9QgNGz5V1WfINsZaE0AFr++s0g==}
+  '@zag-js/remove-scroll@1.21.0':
+    resolution: {integrity: sha512-wsXEM7rUJnJrTmcCHsahtLfxaas/enHOakAB98n5YZelcoFFbE+iR91brb1yUbccfryvepozOac+EIWuO8/2aw==}
 
-  '@zag-js/scroll-snap@1.12.2':
-    resolution: {integrity: sha512-OCYEKKubAwshRI0PvVdt0W5vb7aq06xci5Z3mK3Fu3vIIZe1e1JVHC1vPfjJf4wso5vSdQBN9KLHgdoths4Fvg==}
+  '@zag-js/scroll-snap@1.21.0':
+    resolution: {integrity: sha512-H/8bQql4DjYFVpBG6j/EyUsdboCxyGjRzOg9SN8bA2aXNDBPh+/oLwnCWCqagd4A1VO6JxmuFmbcM2wW9Khmhw==}
 
-  '@zag-js/select@1.12.2':
-    resolution: {integrity: sha512-kSa3EAkUxbEShRVnrkujujFTY22HK4aYSWl1F3u2Yqjmp9EJRX9kR1CXVXbDK8Ta9JmW82XPFyvIa+ah30isPA==}
+  '@zag-js/select@1.21.0':
+    resolution: {integrity: sha512-wVxPzw9lmtCDWTPP0h6P8r7QL93VsyajwV0EPFKoa8HH4XWzl5QBuShXIzmD8dxbHA5HIdAZNYAC5BQCSW37Xw==}
 
-  '@zag-js/signature-pad@1.12.2':
-    resolution: {integrity: sha512-xg5P8XRynjtpNU3KFET+Gw/pQpFj4yV+MnKHIX51Pb6JF8iCBkzx5lF6yNCp8y24ANG8ndGq8LCzv+sCC4tJnA==}
+  '@zag-js/signature-pad@1.21.0':
+    resolution: {integrity: sha512-LUXHsMPXLNSaWBJ4WWY+ZSFpAbbPHfUAGOVh22bOIJWMRchcs4Cch42tFgg/sB8cREfc3G/CS5e2gIBqMigcEQ==}
 
-  '@zag-js/slider@1.12.2':
-    resolution: {integrity: sha512-iAlV+A/PgJoCZaqsIAPBaTd7xDLHYbUe3QbjnDqmOHIVpRIV5kM1MH8creRFtDauHIh1xHD1TIvwKPVi6Ik6Xw==}
+  '@zag-js/slider@1.21.0':
+    resolution: {integrity: sha512-dmH2j8Iu079UZf36TzfPBOYb2jGbvXHcV8x3zYiRWs4ccJDaSNBZieCWCY0/Nm5wI8l+ue/Buc1kcbpIytuWHQ==}
 
-  '@zag-js/splitter@1.12.2':
-    resolution: {integrity: sha512-YQLtL9AKiJtm2D7KLCvQGfHKtZ/FwikvABUW1ldUM2m1he6oKkKdGjSycT4yJg7+K5TbaZfV8jmc+bc7w0/5hA==}
+  '@zag-js/splitter@1.21.0':
+    resolution: {integrity: sha512-blsSe3UrhEYieLF2fuO7UM0t2rQxFTeLYMSjuxFspdYZz47VnEKtVypgQUZnQX5dyttyV49vl1g7+AbBBlk6bA==}
 
-  '@zag-js/steps@1.12.2':
-    resolution: {integrity: sha512-0bI8WYVQAiXOAn36i61Q+rqJzt6+cJK77q5/jMqDvlquQ2lvfhW2XXmBwYXmKadnmfiFprrCvGW1GGwSV/R82A==}
+  '@zag-js/steps@1.21.0':
+    resolution: {integrity: sha512-w0nzJBgYe/A04pNZN1mv1hRT44MVwwRf9VvlBFIS1CxVpUOGkDoVrzRb/CX1zpOhMdtF8w7+FfgT6Q3/oVJ4+A==}
 
-  '@zag-js/store@1.12.2':
-    resolution: {integrity: sha512-Vy1QK0cmaaruzpkIwJ1lvCO3q0E0K/M1ZY71cDbEYKRYfpRqgV+7xluWbfTueqiAIYyGPa7+nCpakdr9zPPsnQ==}
+  '@zag-js/store@1.21.0':
+    resolution: {integrity: sha512-UCAuYWui3+VYfp8KdECXuM+L8tKzQYyNz+7KrRPHyZ37wgHjz4M+QNj/QP5GgDStLJaF3UgbuLYwbXSQ/3WcWw==}
 
-  '@zag-js/switch@1.12.2':
-    resolution: {integrity: sha512-vRKuCwYi5pDLgZMQ6I6cAzdLRFqC627aFycXRU1mC/0uVo/fCrrbjPvdaascLdmTtEq6/IvkjqZwQovedXbKyg==}
+  '@zag-js/switch@1.21.0':
+    resolution: {integrity: sha512-erQ05qU9UUTOKkq77X+fTBOnng75ZFugcbcx4HWkACs9aUQmh9JoRF/1+HzFvRf8SyfuEdiSP25Q+ozmiOUmXQ==}
 
-  '@zag-js/tabs@1.12.2':
-    resolution: {integrity: sha512-7IPumMCwJXP+ukU9AvnmpQJtUoMXbO+b4trG8kZeSGQps5VVZhUntrAOIZ6QYRv6psR1eoNo+4giTepr8dIt3g==}
+  '@zag-js/tabs@1.21.0':
+    resolution: {integrity: sha512-ecRS8F5M6QCAln4ob8waySRmSPozbOZ5dq1GGmaVExBwbrOA4C3ZbrHU3Dhmmx8vUji+rOSRifyhHwCTY0PTqQ==}
 
-  '@zag-js/tags-input@1.12.2':
-    resolution: {integrity: sha512-bldiVV08yPCDVWGGmhCw4NbK44LuKT9SYYbGUtngRfABiiQUjvc8wQZNSdRgAV1ZXrniwLiMDsQ7L9pc585SRg==}
+  '@zag-js/tags-input@1.21.0':
+    resolution: {integrity: sha512-i/3PvNMhUloVi2DO+CRAEHtosu/Xmjcuj7Q3wY1acTORkoyXJrynmKmUcjF2D5ySHuey+Q07ADztlpa9ZHjr8Q==}
 
-  '@zag-js/time-picker@1.12.2':
-    resolution: {integrity: sha512-dv4+ZDOWW7xOFNPQGqm2aMkuBLUkUaHCa/zTzV/0Ypl+A/6gBwjv81HIBDTJOHfhcJhlhuoZtgxU/n0ZRFB0yw==}
+  '@zag-js/time-picker@1.21.0':
+    resolution: {integrity: sha512-GIBgfHfo2pYnl9MD0fVNaJ6UE63dOs+T0DFPhBf3DazNR9r4qhK0QXQLRQyH57KD+kcjKiJNgMGRKsKbX88aEw==}
     peerDependencies:
       '@internationalized/date': '>=3.0.0'
 
-  '@zag-js/timer@1.12.2':
-    resolution: {integrity: sha512-1cmdgRSuZNKEoyv5CNb4GZeU3MUi+WJBMZKeXMWy4niBz5sheaLl1FqfW9vUnXAKpfqKif/OFj/QYeo9+m8LqA==}
+  '@zag-js/timer@1.21.0':
+    resolution: {integrity: sha512-vFohY91xnJVV6iSkT6tESLIrFssZsE02LbnXjHEnEVajC0jXLExvIu70t+5CWmP08e2yfp7E+G9WI1cDyzS/SQ==}
 
-  '@zag-js/toast@1.12.2':
-    resolution: {integrity: sha512-uaSlF3PiQ/hlFamBRkrxUESDYd8vXo/iRqvNiROy18bBygpvhfNIi+f8vrvkGXuSqzZ8VWJbbgiNMtqPX6I/8w==}
+  '@zag-js/toast@1.21.0':
+    resolution: {integrity: sha512-DMvdLMQFGGwNxRjnzEsszocBWreQ+4spvQTrolra9pp7PuklodnIIuxRNNQ7bQVd1wH/pQPkEwXTbusb4NMBgw==}
 
-  '@zag-js/toggle-group@1.12.2':
-    resolution: {integrity: sha512-pFgU9OjhcBVIWS5izSlTG+K3MlKK+LeD1qKaMIHvX//0pJWkn9oEcNVs58Ae4DrizN5A8WB5i5FjV7BC3hDNYw==}
+  '@zag-js/toggle-group@1.21.0':
+    resolution: {integrity: sha512-zUxLj0sXCUixI3C7lMEekQc8jQlFd0Y70a3/MO5xC/sem3pucPS30rulcvp7b3d9TLJk8YVofpvAjdRPDyb9XA==}
 
-  '@zag-js/toggle@1.12.2':
-    resolution: {integrity: sha512-AUDEVjZtXwwYFSEHF4cDTJlGvjsaYcXdk3P7j9JQLoKkDci3x25QgOw6W670/RWpFNpbfjO8qBjWMs1P5+Dw4w==}
+  '@zag-js/toggle@1.21.0':
+    resolution: {integrity: sha512-+toPS8gviWYDAatyuFOWooHts5LP368UYsubedxZAgyz+qE6Mo8j282k2iGvmzrM22WcplRXVzgZ0JYUFVPtbQ==}
 
-  '@zag-js/tooltip@1.12.2':
-    resolution: {integrity: sha512-RAZ0wslbHWfcH1MPVmfwFJfP3vzQ2Cf5hc5oJZzTURhNpgM3vIhtbCyjXwal/L82eW+Iu2bRrezE/fNRjwBIbw==}
+  '@zag-js/tooltip@1.21.0':
+    resolution: {integrity: sha512-X7t93MPvB0T82HT9QRlfh+Ts8QwAeouSDmaCCrF5/tdIsMTuzEzGqWtaPbXTDfMGrsG2umlIiIVSraWDe6aAIQ==}
 
-  '@zag-js/tour@1.12.2':
-    resolution: {integrity: sha512-3TNE2p/mUe52RgndOpoSEVlB57TWuK6dM1X/atVMfDBDDBwTjDFkw5OnHSh3nDugva54EJVArn/0+9QGZhvl+w==}
+  '@zag-js/tour@1.21.0':
+    resolution: {integrity: sha512-441Az3byK0vP2zL67p4z5m7s/0B7uHicLdvS0rKjoI+2gZ9Qd8yGuzTSfMJY2lWn+407iswN/koY7Kz5K0srFg==}
 
-  '@zag-js/tree-view@1.12.2':
-    resolution: {integrity: sha512-S/+a6KCFGSocMKlMG8GmfEkfjbuDeams4s/NTy1JYOTlYO72J5T0L9FD8i9q/bXBhHNno985b5QGpjlfHG6Brg==}
+  '@zag-js/tree-view@1.21.0':
+    resolution: {integrity: sha512-gMjmy+sdZsLm75pwLH8M5qCOnsXA2KIGt0lKcfL/qAhYqDVaXm6xnx43JhJxSvVvqPqDuP1W8R5vUkBtEXV5Ig==}
 
-  '@zag-js/types@1.12.2':
-    resolution: {integrity: sha512-coJfIU/1Cg1RkWEkf4ArXK6rD3EU+lwxQdtVRlhvGk4c2ts2YTqNi/Sis5CT4/dzaKAk3pk8O2H3ry4IcL2tsg==}
+  '@zag-js/types@1.21.0':
+    resolution: {integrity: sha512-ozT8aTeqCKsPYQDqIgkjkJnXBEADvV8nj8ZuXUzm7RhIN9EqeqpQyOdA7GdYrrDY5bgmdzyzmJu+e/2PbWg/ng==}
 
-  '@zag-js/utils@1.12.2':
-    resolution: {integrity: sha512-JLmzHzJVggOy+4z3jbJ8v86O6Gqm4h1/+ExtwfiTiba0O7j2+4Had7XQxSjVw+H7fNDAfwbZY8af7XzrnumcLQ==}
+  '@zag-js/utils@1.21.0':
+    resolution: {integrity: sha512-yI/CZizbk387TdkDCy9Uc4l53uaeQuWAIJESrmAwwq6yMNbHZ2dm5+1NHdZr/guES5TgyJa/BYJsNJeCsCfesg==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1617,6 +1779,11 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  esbuild@0.25.8:
+    resolution: {integrity: sha512-vVC0USHGtMi8+R4Kz8rt6JhEWLxsv9Rnu/lGYbPR8u47B+DCBksq9JarW0zOO7bs37hyOK1l2/oqtbciutL5+Q==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   escalade@3.2.0:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
     engines: {node: '>=6'}
@@ -1773,8 +1940,8 @@ packages:
     resolution: {integrity: sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==}
     engines: {node: '>= 0.4'}
 
-  get-tsconfig@4.10.0:
-    resolution: {integrity: sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==}
+  get-tsconfig@4.10.1:
+    resolution: {integrity: sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -2593,65 +2760,67 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@ark-ui/react@5.9.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@ark-ui/react@5.18.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@internationalized/date': 3.8.0
-      '@zag-js/accordion': 1.12.2
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/angle-slider': 1.12.2
-      '@zag-js/auto-resize': 1.12.2
-      '@zag-js/avatar': 1.12.2
-      '@zag-js/carousel': 1.12.2
-      '@zag-js/checkbox': 1.12.2
-      '@zag-js/clipboard': 1.12.2
-      '@zag-js/collapsible': 1.12.2
-      '@zag-js/collection': 1.12.2
-      '@zag-js/color-picker': 1.12.2
-      '@zag-js/color-utils': 1.12.2
-      '@zag-js/combobox': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/date-picker': 1.12.2(@internationalized/date@3.8.0)
-      '@zag-js/date-utils': 1.12.2(@internationalized/date@3.8.0)
-      '@zag-js/dialog': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/editable': 1.12.2
-      '@zag-js/file-upload': 1.12.2
-      '@zag-js/file-utils': 1.12.2
-      '@zag-js/floating-panel': 1.12.2
-      '@zag-js/focus-trap': 1.12.2
-      '@zag-js/highlight-word': 1.12.2
-      '@zag-js/hover-card': 1.12.2
-      '@zag-js/i18n-utils': 1.12.2
-      '@zag-js/listbox': 1.12.2
-      '@zag-js/menu': 1.12.2
-      '@zag-js/number-input': 1.12.2
-      '@zag-js/pagination': 1.12.2
-      '@zag-js/pin-input': 1.12.2
-      '@zag-js/popover': 1.12.2
-      '@zag-js/presence': 1.12.2
-      '@zag-js/progress': 1.12.2
-      '@zag-js/qr-code': 1.12.2
-      '@zag-js/radio-group': 1.12.2
-      '@zag-js/rating-group': 1.12.2
-      '@zag-js/react': 1.12.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@zag-js/select': 1.12.2
-      '@zag-js/signature-pad': 1.12.2
-      '@zag-js/slider': 1.12.2
-      '@zag-js/splitter': 1.12.2
-      '@zag-js/steps': 1.12.2
-      '@zag-js/switch': 1.12.2
-      '@zag-js/tabs': 1.12.2
-      '@zag-js/tags-input': 1.12.2
-      '@zag-js/time-picker': 1.12.2(@internationalized/date@3.8.0)
-      '@zag-js/timer': 1.12.2
-      '@zag-js/toast': 1.12.2
-      '@zag-js/toggle': 1.12.2
-      '@zag-js/toggle-group': 1.12.2
-      '@zag-js/tooltip': 1.12.2
-      '@zag-js/tour': 1.12.2
-      '@zag-js/tree-view': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@internationalized/date': 3.8.2
+      '@zag-js/accordion': 1.21.0
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/angle-slider': 1.21.0
+      '@zag-js/auto-resize': 1.21.0
+      '@zag-js/avatar': 1.21.0
+      '@zag-js/carousel': 1.21.0
+      '@zag-js/checkbox': 1.21.0
+      '@zag-js/clipboard': 1.21.0
+      '@zag-js/collapsible': 1.21.0
+      '@zag-js/collection': 1.21.0
+      '@zag-js/color-picker': 1.21.0
+      '@zag-js/color-utils': 1.21.0
+      '@zag-js/combobox': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/date-picker': 1.21.0(@internationalized/date@3.8.2)
+      '@zag-js/date-utils': 1.21.0(@internationalized/date@3.8.2)
+      '@zag-js/dialog': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/editable': 1.21.0
+      '@zag-js/file-upload': 1.21.0
+      '@zag-js/file-utils': 1.21.0
+      '@zag-js/floating-panel': 1.21.0
+      '@zag-js/focus-trap': 1.21.0
+      '@zag-js/highlight-word': 1.21.0
+      '@zag-js/hover-card': 1.21.0
+      '@zag-js/i18n-utils': 1.21.0
+      '@zag-js/json-tree-utils': 1.21.0
+      '@zag-js/listbox': 1.21.0
+      '@zag-js/menu': 1.21.0
+      '@zag-js/number-input': 1.21.0
+      '@zag-js/pagination': 1.21.0
+      '@zag-js/password-input': 1.21.0
+      '@zag-js/pin-input': 1.21.0
+      '@zag-js/popover': 1.21.0
+      '@zag-js/presence': 1.21.0
+      '@zag-js/progress': 1.21.0
+      '@zag-js/qr-code': 1.21.0
+      '@zag-js/radio-group': 1.21.0
+      '@zag-js/rating-group': 1.21.0
+      '@zag-js/react': 1.21.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@zag-js/select': 1.21.0
+      '@zag-js/signature-pad': 1.21.0
+      '@zag-js/slider': 1.21.0
+      '@zag-js/splitter': 1.21.0
+      '@zag-js/steps': 1.21.0
+      '@zag-js/switch': 1.21.0
+      '@zag-js/tabs': 1.21.0
+      '@zag-js/tags-input': 1.21.0
+      '@zag-js/time-picker': 1.21.0(@internationalized/date@3.8.2)
+      '@zag-js/timer': 1.21.0
+      '@zag-js/toast': 1.21.0
+      '@zag-js/toggle': 1.21.0
+      '@zag-js/toggle-group': 1.21.0
+      '@zag-js/tooltip': 1.21.0
+      '@zag-js/tour': 1.21.0
+      '@zag-js/tree-view': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
@@ -2769,15 +2938,15 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@chakra-ui/react@3.19.1(@emotion/react@11.14.0(@types/react@18.3.1)(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@chakra-ui/react@3.23.0(@emotion/react@11.14.0(@types/react@18.3.1)(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@ark-ui/react': 5.9.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@ark-ui/react': 5.18.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@emotion/is-prop-valid': 1.3.1
       '@emotion/react': 11.14.0(@types/react@18.3.1)(react@19.1.0)
       '@emotion/serialize': 1.3.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.1.0)
       '@emotion/utils': 1.4.2
-      '@pandacss/is-valid-prop': 0.53.6
+      '@pandacss/is-valid-prop': 0.54.0
       csstype: 3.1.3
       fast-safe-stringify: 2.1.1
       react: 19.1.0
@@ -2867,76 +3036,154 @@ snapshots:
   '@esbuild/aix-ppc64@0.25.0':
     optional: true
 
+  '@esbuild/aix-ppc64@0.25.8':
+    optional: true
+
   '@esbuild/android-arm64@0.25.0':
+    optional: true
+
+  '@esbuild/android-arm64@0.25.8':
     optional: true
 
   '@esbuild/android-arm@0.25.0':
     optional: true
 
+  '@esbuild/android-arm@0.25.8':
+    optional: true
+
   '@esbuild/android-x64@0.25.0':
+    optional: true
+
+  '@esbuild/android-x64@0.25.8':
     optional: true
 
   '@esbuild/darwin-arm64@0.25.0':
     optional: true
 
+  '@esbuild/darwin-arm64@0.25.8':
+    optional: true
+
   '@esbuild/darwin-x64@0.25.0':
+    optional: true
+
+  '@esbuild/darwin-x64@0.25.8':
     optional: true
 
   '@esbuild/freebsd-arm64@0.25.0':
     optional: true
 
+  '@esbuild/freebsd-arm64@0.25.8':
+    optional: true
+
   '@esbuild/freebsd-x64@0.25.0':
+    optional: true
+
+  '@esbuild/freebsd-x64@0.25.8':
     optional: true
 
   '@esbuild/linux-arm64@0.25.0':
     optional: true
 
+  '@esbuild/linux-arm64@0.25.8':
+    optional: true
+
   '@esbuild/linux-arm@0.25.0':
+    optional: true
+
+  '@esbuild/linux-arm@0.25.8':
     optional: true
 
   '@esbuild/linux-ia32@0.25.0':
     optional: true
 
+  '@esbuild/linux-ia32@0.25.8':
+    optional: true
+
   '@esbuild/linux-loong64@0.25.0':
+    optional: true
+
+  '@esbuild/linux-loong64@0.25.8':
     optional: true
 
   '@esbuild/linux-mips64el@0.25.0':
     optional: true
 
+  '@esbuild/linux-mips64el@0.25.8':
+    optional: true
+
   '@esbuild/linux-ppc64@0.25.0':
+    optional: true
+
+  '@esbuild/linux-ppc64@0.25.8':
     optional: true
 
   '@esbuild/linux-riscv64@0.25.0':
     optional: true
 
+  '@esbuild/linux-riscv64@0.25.8':
+    optional: true
+
   '@esbuild/linux-s390x@0.25.0':
+    optional: true
+
+  '@esbuild/linux-s390x@0.25.8':
     optional: true
 
   '@esbuild/linux-x64@0.25.0':
     optional: true
 
+  '@esbuild/linux-x64@0.25.8':
+    optional: true
+
   '@esbuild/netbsd-arm64@0.25.0':
+    optional: true
+
+  '@esbuild/netbsd-arm64@0.25.8':
     optional: true
 
   '@esbuild/netbsd-x64@0.25.0':
     optional: true
 
+  '@esbuild/netbsd-x64@0.25.8':
+    optional: true
+
   '@esbuild/openbsd-arm64@0.25.0':
+    optional: true
+
+  '@esbuild/openbsd-arm64@0.25.8':
     optional: true
 
   '@esbuild/openbsd-x64@0.25.0':
     optional: true
 
+  '@esbuild/openbsd-x64@0.25.8':
+    optional: true
+
+  '@esbuild/openharmony-arm64@0.25.8':
+    optional: true
+
   '@esbuild/sunos-x64@0.25.0':
+    optional: true
+
+  '@esbuild/sunos-x64@0.25.8':
     optional: true
 
   '@esbuild/win32-arm64@0.25.0':
     optional: true
 
+  '@esbuild/win32-arm64@0.25.8':
+    optional: true
+
   '@esbuild/win32-ia32@0.25.0':
     optional: true
 
+  '@esbuild/win32-ia32@0.25.8':
+    optional: true
+
   '@esbuild/win32-x64@0.25.0':
+    optional: true
+
+  '@esbuild/win32-x64@0.25.8':
     optional: true
 
   '@eslint-community/eslint-utils@4.4.1(eslint@9.21.0)':
@@ -2981,16 +3228,16 @@ snapshots:
       '@eslint/core': 0.12.0
       levn: 0.4.1
 
-  '@floating-ui/core@1.7.0':
+  '@floating-ui/core@1.7.3':
     dependencies:
-      '@floating-ui/utils': 0.2.9
+      '@floating-ui/utils': 0.2.10
 
-  '@floating-ui/dom@1.6.13':
+  '@floating-ui/dom@1.7.2':
     dependencies:
-      '@floating-ui/core': 1.7.0
-      '@floating-ui/utils': 0.2.9
+      '@floating-ui/core': 1.7.3
+      '@floating-ui/utils': 0.2.10
 
-  '@floating-ui/utils@0.2.9': {}
+  '@floating-ui/utils@0.2.10': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -3005,11 +3252,11 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@internationalized/date@3.8.0':
+  '@internationalized/date@3.8.2':
     dependencies:
       '@swc/helpers': 0.5.17
 
-  '@internationalized/number@3.6.1':
+  '@internationalized/number@3.6.3':
     dependencies:
       '@swc/helpers': 0.5.17
 
@@ -3101,7 +3348,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.0
 
-  '@pandacss/is-valid-prop@0.53.6': {}
+  '@pandacss/is-valid-prop@0.54.0': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -3766,496 +4013,506 @@ snapshots:
 
   '@vue/shared@3.5.13': {}
 
-  '@zag-js/accordion@1.12.2':
+  '@zag-js/accordion@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/anatomy@1.12.2': {}
+  '@zag-js/anatomy@1.21.0': {}
 
-  '@zag-js/angle-slider@1.12.2':
+  '@zag-js/angle-slider@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/rect-utils': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/rect-utils': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/aria-hidden@1.12.2': {}
+  '@zag-js/aria-hidden@1.21.0': {}
 
-  '@zag-js/auto-resize@1.12.2':
+  '@zag-js/auto-resize@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
+      '@zag-js/dom-query': 1.21.0
 
-  '@zag-js/avatar@1.12.2':
+  '@zag-js/avatar@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/carousel@1.12.2':
+  '@zag-js/carousel@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/scroll-snap': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/scroll-snap': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/checkbox@1.12.2':
+  '@zag-js/checkbox@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-visible': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-visible': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/clipboard@1.12.2':
+  '@zag-js/clipboard@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/collapsible@1.12.2':
+  '@zag-js/collapsible@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/collection@1.12.2':
+  '@zag-js/collection@1.21.0':
     dependencies:
-      '@zag-js/utils': 1.12.2
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/color-picker@1.12.2':
+  '@zag-js/color-picker@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/color-utils': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/color-utils': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/color-utils@1.12.2':
+  '@zag-js/color-utils@1.21.0':
     dependencies:
-      '@zag-js/utils': 1.12.2
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/combobox@1.12.2':
+  '@zag-js/combobox@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/aria-hidden': 1.12.2
-      '@zag-js/collection': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/aria-hidden': 1.21.0
+      '@zag-js/collection': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/core@1.12.2':
+  '@zag-js/core@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/date-picker@1.12.2(@internationalized/date@3.8.0)':
+  '@zag-js/date-picker@1.21.0(@internationalized/date@3.8.2)':
     dependencies:
-      '@internationalized/date': 3.8.0
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/date-utils': 1.12.2(@internationalized/date@3.8.0)
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/live-region': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@internationalized/date': 3.8.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/date-utils': 1.21.0(@internationalized/date@3.8.2)
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/live-region': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/date-utils@1.12.2(@internationalized/date@3.8.0)':
+  '@zag-js/date-utils@1.21.0(@internationalized/date@3.8.2)':
     dependencies:
-      '@internationalized/date': 3.8.0
+      '@internationalized/date': 3.8.2
 
-  '@zag-js/dialog@1.12.2':
+  '@zag-js/dialog@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/aria-hidden': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-trap': 1.12.2
-      '@zag-js/remove-scroll': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/aria-hidden': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-trap': 1.21.0
+      '@zag-js/remove-scroll': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/dismissable@1.12.2':
+  '@zag-js/dismissable@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/interact-outside': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/interact-outside': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/dom-query@1.12.2':
+  '@zag-js/dom-query@1.21.0':
     dependencies:
-      '@zag-js/types': 1.12.2
+      '@zag-js/types': 1.21.0
 
-  '@zag-js/editable@1.12.2':
+  '@zag-js/editable@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/interact-outside': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/interact-outside': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/file-upload@1.12.2':
+  '@zag-js/file-upload@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/file-utils': 1.12.2
-      '@zag-js/i18n-utils': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/file-utils': 1.21.0
+      '@zag-js/i18n-utils': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/file-utils@1.12.2':
+  '@zag-js/file-utils@1.21.0':
     dependencies:
-      '@zag-js/i18n-utils': 1.12.2
+      '@zag-js/i18n-utils': 1.21.0
 
-  '@zag-js/floating-panel@1.12.2':
+  '@zag-js/floating-panel@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/rect-utils': 1.12.2
-      '@zag-js/store': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/rect-utils': 1.21.0
+      '@zag-js/store': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/focus-trap@1.12.2':
+  '@zag-js/focus-trap@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
+      '@zag-js/dom-query': 1.21.0
 
-  '@zag-js/focus-visible@1.12.2':
+  '@zag-js/focus-visible@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
+      '@zag-js/dom-query': 1.21.0
 
-  '@zag-js/highlight-word@1.12.2': {}
+  '@zag-js/highlight-word@1.21.0': {}
 
-  '@zag-js/hover-card@1.12.2':
+  '@zag-js/hover-card@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/i18n-utils@1.12.2':
+  '@zag-js/i18n-utils@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
+      '@zag-js/dom-query': 1.21.0
 
-  '@zag-js/interact-outside@1.12.2':
+  '@zag-js/interact-outside@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/listbox@1.12.2':
+  '@zag-js/json-tree-utils@1.21.0': {}
+
+  '@zag-js/listbox@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/collection': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-visible': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/collection': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-visible': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/live-region@1.12.2': {}
+  '@zag-js/live-region@1.21.0': {}
 
-  '@zag-js/menu@1.12.2':
+  '@zag-js/menu@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/rect-utils': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/rect-utils': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/number-input@1.12.2':
+  '@zag-js/number-input@1.21.0':
     dependencies:
-      '@internationalized/number': 3.6.1
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@internationalized/number': 3.6.3
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/pagination@1.12.2':
+  '@zag-js/pagination@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/pin-input@1.12.2':
+  '@zag-js/password-input@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/popover@1.12.2':
+  '@zag-js/pin-input@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/aria-hidden': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-trap': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/remove-scroll': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/popper@1.12.2':
+  '@zag-js/popover@1.21.0':
     dependencies:
-      '@floating-ui/dom': 1.6.13
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/aria-hidden': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-trap': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/remove-scroll': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/presence@1.12.2':
+  '@zag-js/popper@1.21.0':
     dependencies:
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
+      '@floating-ui/dom': 1.7.2
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/progress@1.12.2':
+  '@zag-js/presence@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
 
-  '@zag-js/qr-code@1.12.2':
+  '@zag-js/progress@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
+
+  '@zag-js/qr-code@1.21.0':
+    dependencies:
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
       proxy-memoize: 3.0.1
       uqr: 0.1.2
 
-  '@zag-js/radio-group@1.12.2':
+  '@zag-js/radio-group@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-visible': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-visible': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/rating-group@1.12.2':
+  '@zag-js/rating-group@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/react@1.12.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@zag-js/react@1.21.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@zag-js/core': 1.12.2
-      '@zag-js/store': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/core': 1.21.0
+      '@zag-js/store': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@zag-js/rect-utils@1.12.2': {}
+  '@zag-js/rect-utils@1.21.0': {}
 
-  '@zag-js/remove-scroll@1.12.2':
+  '@zag-js/remove-scroll@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
+      '@zag-js/dom-query': 1.21.0
 
-  '@zag-js/scroll-snap@1.12.2':
+  '@zag-js/scroll-snap@1.21.0':
     dependencies:
-      '@zag-js/dom-query': 1.12.2
+      '@zag-js/dom-query': 1.21.0
 
-  '@zag-js/select@1.12.2':
+  '@zag-js/select@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/collection': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/collection': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/signature-pad@1.12.2':
+  '@zag-js/signature-pad@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
       perfect-freehand: 1.2.2
 
-  '@zag-js/slider@1.12.2':
+  '@zag-js/slider@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/splitter@1.12.2':
+  '@zag-js/splitter@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/steps@1.12.2':
+  '@zag-js/steps@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/store@1.12.2':
+  '@zag-js/store@1.21.0':
     dependencies:
       proxy-compare: 3.0.1
 
-  '@zag-js/switch@1.12.2':
+  '@zag-js/switch@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-visible': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-visible': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/tabs@1.12.2':
+  '@zag-js/tabs@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/tags-input@1.12.2':
+  '@zag-js/tags-input@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/auto-resize': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/interact-outside': 1.12.2
-      '@zag-js/live-region': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/auto-resize': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/interact-outside': 1.21.0
+      '@zag-js/live-region': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/time-picker@1.12.2(@internationalized/date@3.8.0)':
+  '@zag-js/time-picker@1.21.0(@internationalized/date@3.8.2)':
     dependencies:
-      '@internationalized/date': 3.8.0
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@internationalized/date': 3.8.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/timer@1.12.2':
+  '@zag-js/timer@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/toast@1.12.2':
+  '@zag-js/toast@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/toggle-group@1.12.2':
+  '@zag-js/toggle-group@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/toggle@1.12.2':
+  '@zag-js/toggle@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/tooltip@1.12.2':
+  '@zag-js/tooltip@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-visible': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/store': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-visible': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/store': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/tour@1.12.2':
+  '@zag-js/tour@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dismissable': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/focus-trap': 1.12.2
-      '@zag-js/interact-outside': 1.12.2
-      '@zag-js/popper': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dismissable': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/focus-trap': 1.21.0
+      '@zag-js/interact-outside': 1.21.0
+      '@zag-js/popper': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/tree-view@1.12.2':
+  '@zag-js/tree-view@1.21.0':
     dependencies:
-      '@zag-js/anatomy': 1.12.2
-      '@zag-js/collection': 1.12.2
-      '@zag-js/core': 1.12.2
-      '@zag-js/dom-query': 1.12.2
-      '@zag-js/types': 1.12.2
-      '@zag-js/utils': 1.12.2
+      '@zag-js/anatomy': 1.21.0
+      '@zag-js/collection': 1.21.0
+      '@zag-js/core': 1.21.0
+      '@zag-js/dom-query': 1.21.0
+      '@zag-js/types': 1.21.0
+      '@zag-js/utils': 1.21.0
 
-  '@zag-js/types@1.12.2':
+  '@zag-js/types@1.21.0':
     dependencies:
       csstype: 3.1.3
 
-  '@zag-js/utils@1.12.2': {}
+  '@zag-js/utils@1.21.0': {}
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:
@@ -4530,6 +4787,36 @@ snapshots:
       '@esbuild/win32-ia32': 0.25.0
       '@esbuild/win32-x64': 0.25.0
 
+  esbuild@0.25.8:
+    optionalDependencies:
+      '@esbuild/aix-ppc64': 0.25.8
+      '@esbuild/android-arm': 0.25.8
+      '@esbuild/android-arm64': 0.25.8
+      '@esbuild/android-x64': 0.25.8
+      '@esbuild/darwin-arm64': 0.25.8
+      '@esbuild/darwin-x64': 0.25.8
+      '@esbuild/freebsd-arm64': 0.25.8
+      '@esbuild/freebsd-x64': 0.25.8
+      '@esbuild/linux-arm': 0.25.8
+      '@esbuild/linux-arm64': 0.25.8
+      '@esbuild/linux-ia32': 0.25.8
+      '@esbuild/linux-loong64': 0.25.8
+      '@esbuild/linux-mips64el': 0.25.8
+      '@esbuild/linux-ppc64': 0.25.8
+      '@esbuild/linux-riscv64': 0.25.8
+      '@esbuild/linux-s390x': 0.25.8
+      '@esbuild/linux-x64': 0.25.8
+      '@esbuild/netbsd-arm64': 0.25.8
+      '@esbuild/netbsd-x64': 0.25.8
+      '@esbuild/openbsd-arm64': 0.25.8
+      '@esbuild/openbsd-x64': 0.25.8
+      '@esbuild/openharmony-arm64': 0.25.8
+      '@esbuild/sunos-x64': 0.25.8
+      '@esbuild/win32-arm64': 0.25.8
+      '@esbuild/win32-ia32': 0.25.8
+      '@esbuild/win32-x64': 0.25.8
+    optional: true
+
   escalade@3.2.0: {}
 
   escape-string-regexp@4.0.0: {}
@@ -4710,7 +4997,7 @@ snapshots:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
 
-  get-tsconfig@4.10.0:
+  get-tsconfig@4.10.1:
     dependencies:
       resolve-pkg-maps: 1.0.0
     optional: true
@@ -5297,8 +5584,8 @@ snapshots:
 
   tsx@4.19.3:
     dependencies:
-      esbuild: 0.25.0
-      get-tsconfig: 4.10.0
+      esbuild: 0.25.8
+      get-tsconfig: 4.10.1
     optionalDependencies:
       fsevents: 2.3.3
     optional: true

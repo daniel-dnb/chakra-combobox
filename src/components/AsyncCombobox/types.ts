@@ -31,6 +31,11 @@ export interface AsyncComboboxProps<OptionType> {
    */
   isClearable?: boolean;
   /**
+   * Whether to use a portal for the popover content. Defaults to true.
+   * Set to false when using inside dialogs/modals to prevent z-index issues.
+   */
+  insideDialog?: boolean;
+  /**
    * Function to get the display label of an option.
    * @param option - The option to be displayed.
    * @returns The text to be displayed as the label.
