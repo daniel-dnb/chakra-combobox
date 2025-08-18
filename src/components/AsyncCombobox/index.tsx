@@ -86,6 +86,7 @@ function AsyncComboboxComponent<OptionType>({
             <Flex gap={1} align="center">
               {isClearable && value && (
                 <Button
+                  as="span"
                   size="xs"
                   variant="ghost"
                   css={clearButtonCss}
