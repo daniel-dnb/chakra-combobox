@@ -5,21 +5,12 @@ import { AsyncCombobox as AsyncComboboxBase } from "../components/AsyncCombobox"
 import { getDogBreeds } from "../api/dogs";
 import { type AsyncComboboxChakraStyles } from "../components/AsyncCombobox/types";
 
-interface DogOption {
-  value: string;
-  label: string;
-}
-
 const initialPage = 1;
 
 const chakraStyles: AsyncComboboxChakraStyles = {
   control: provided => ({
     ...provided,
     w: "250px",
-  }),
-  scrollArea: provided => ({
-    ...provided,
-    maxH: "200px",
   }),
 };
 
@@ -44,23 +35,17 @@ export const AsyncCombobox = () => {
   });
 
   const parsedDogsData = isSuccess
-    ? dogs?.pages
-        .map(page => page.data)
-        .flat()
-        .map(dogs => ({
-          value: dogs.id.toString(),
-          label: dogs.name,
-        }))
+    ? dogs?.pages.map(page => page.data).flat()
     : [];
 
-  const [value, setValue] = useState<DogOption | undefined>(undefined);
+  const [value, setValue] = useState<string[] | undefined>(undefined);
 
   return (
     <AsyncComboboxBase
       options={parsedDogsData}
       fetchNextPage={fetchNextPage}
-      getOptionLabel={option => option.label}
-      getOptionValue={option => option.value}
+      getOptionLabel={option => option.name}
+      getOptionValue={option => option.id.toString()}
       onSearchChange={value => setSearch(value)}
       isLoading={isLoading}
       isFetchingNextPage={isFetchingNextPage}
@@ -97,16 +82,10 @@ export const AsyncComboboxInDialog = () => {
   });
 
   const parsedDogsData = isSuccess
-    ? dogs?.pages
-        .map(page => page.data)
-        .flat()
-        .map(dogs => ({
-          value: dogs.id.toString(),
-          label: dogs.name,
-        }))
+    ? dogs?.pages.map(page => page.data).flat()
     : [];
 
-  const [value, setValue] = useState<DogOption | undefined>(undefined);
+  const [value, setValue] = useState<string[] | undefined>(undefined);
 
   return (
     <VStack gap={4}>
@@ -136,8 +115,8 @@ export const AsyncComboboxInDialog = () => {
                   <AsyncComboboxBase
                     options={parsedDogsData}
                     fetchNextPage={fetchNextPage}
-                    getOptionLabel={option => option.label}
-                    getOptionValue={option => option.value}
+                    getOptionLabel={option => option.name}
+                    getOptionValue={option => option.nameWithId}
                     onSearchChange={value => setSearch(value)}
                     isLoading={isLoading}
                     isFetchingNextPage={isFetchingNextPage}
@@ -146,6 +125,7 @@ export const AsyncComboboxInDialog = () => {
                     value={value}
                     onSelect={option => setValue(option)}
                     insideDialog
+                    withCheckmark
                     chakraStyles={{
                       ...chakraStyles,
                       control: provided => ({
@@ -153,10 +133,17 @@ export const AsyncComboboxInDialog = () => {
                         w: "100%",
                       }),
                     }}
+                    listboxProps={{
+                      Root: {
+                        selectionMode: "multiple",
+                      },
+                    }}
                   />
 
                   {value && (
-                    <Text color="green.500">Selected: {value.label}</Text>
+                    <Text color="green.500">
+                      Selected: {value.map(v => v).join(", ")}
+                    </Text>
                   )}
                 </VStack>
               </Dialog.Body>

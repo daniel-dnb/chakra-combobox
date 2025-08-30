@@ -1,4 +1,9 @@
-import { ButtonProps, SystemStyleObject } from "@chakra-ui/react";
+import {
+  ButtonProps,
+  CheckmarkProps,
+  Listbox,
+  SystemStyleObject,
+} from "@chakra-ui/react";
 import React, { ElementType } from "react";
 
 export interface AsyncComboboxProps<OptionType> {
@@ -21,7 +26,7 @@ export interface AsyncComboboxProps<OptionType> {
   /**
    * Currently selected value in the combobox.
    */
-  value: OptionType | undefined;
+  value: string[] | undefined;
   /**
    * Placeholder text for the input field.
    */
@@ -60,7 +65,7 @@ export interface AsyncComboboxProps<OptionType> {
    * Callback triggered when an option is selected.
    * @param option - The selected option.
    */
-  onSelect: (option: OptionType | undefined) => void;
+  onSelect: (option: string[] | undefined) => void;
   /** Close the combobox when an option is selected. */
   closeOnSelect?: boolean;
   /**
@@ -83,6 +88,18 @@ export interface AsyncComboboxProps<OptionType> {
    * Custom styles for different elements of the combobox, using Chakra UI.
    */
   chakraStyles?: AsyncComboboxChakraStyles;
+  /**
+   * Custom props for the listbox.
+   */
+  listboxProps?: ListboxProps;
+  /**
+   * Whether to show the indicator.
+   */
+  withIndicator?: boolean;
+  /**
+   * Whether to show the checkmark.
+   */
+  withCheckmark?: boolean;
 }
 
 export type AsyncComboboxChakraStyles = {
@@ -103,7 +120,7 @@ export type AsyncComboboxChakraStyles = {
    * @param provided - Default styles applied by Chakra UI.
    * @returns Custom styles.
    */
-  menuList?: (provided: SystemStyleObject) => SystemStyleObject;
+  popoverContentCss?: (provided: SystemStyleObject) => SystemStyleObject;
   /**
    * Styles each individual option inside the dropdown list.
    * @param provided - Default styles applied by Chakra UI.
@@ -116,30 +133,6 @@ export type AsyncComboboxChakraStyles = {
    * @returns Custom styles.
    */
   input?: (provided: SystemStyleObject) => SystemStyleObject;
-  /**
-   * Styles the scroll area of the options list.
-   * @param provided - Default styles applied by Chakra UI.
-   * @returns Custom styles.
-   */
-  scrollArea?: (provided: SystemStyleObject) => SystemStyleObject;
-  /**
-   * Styles the scrollbar of the options list.
-   * @param provided - Default styles applied by Chakra UI.
-   * @returns Custom styles.
-   */
-  scrollbar?: (provided: SystemStyleObject) => SystemStyleObject;
-  /**
-   * Styles the scrollbar thumb (draggable indicator).
-   * @param provided - Default styles applied by Chakra UI.
-   * @returns Custom styles.
-   */
-  scrollThumb?: (provided: SystemStyleObject) => SystemStyleObject;
-  /**
-   * Styles the corner of the scrollbar.
-   * @param provided - Default styles applied by Chakra UI.
-   * @returns Custom styles.
-   */
-  scrollCorner?: (provided: SystemStyleObject) => SystemStyleObject;
   /**
    * Styles the loading message displayed when fetching options.
    * @param provided - Default styles applied by Chakra UI.
@@ -167,4 +160,31 @@ export type AsyncComboboxButtonProps = ButtonProps & {
    * @returns Custom styles.
    */
   controlCss?: (provided: SystemStyleObject) => SystemStyleObject;
+};
+
+export type ListboxProps = {
+  /**
+   * Custom props for the listbox root.
+   */
+  Root?: Omit<Listbox.RootProps, "collection">;
+  /**
+   * Custom props for the listbox content.
+   */
+  Content?: Listbox.ContentProps;
+  /**
+   * Custom props for the listbox item.
+   */
+  Item?: Omit<Listbox.ItemProps, "item">;
+  /**
+   * Custom props for the listbox item text.
+   */
+  ItemText?: Listbox.ItemTextProps;
+  /**
+   * Custom props for the listbox item indicator.
+   */
+  ItemIndicator?: Listbox.ItemIndicatorProps;
+  /**
+   * Custom props for the listbox item checkmark.
+   */
+  Checkmark?: CheckmarkProps;
 };

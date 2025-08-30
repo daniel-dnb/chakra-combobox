@@ -1,6 +1,5 @@
 import React, { memo, useState, useMemo } from "react";
 import {
-  Box,
   Button,
   Flex,
   Icon,
@@ -10,12 +9,11 @@ import {
   Portal,
 } from "@chakra-ui/react";
 import { AsyncComboboxButtonProps, AsyncComboboxProps } from "./types";
-import { Input } from "../Input";
-import { VirtualizedScrollArea } from "../VirtualizedScrollArea";
 import { DropdownIndicator } from "../DropdownIndicator";
 import { debounce } from "../../helpers/debounce";
 import { makeCss } from "../../helpers/makeCss";
 import { LuX } from "../Icons";
+import { ListboxVirtualized } from "../ListboxVirtualized";
 
 function AsyncComboboxComponent<OptionType>({
   getOptionLabel,
@@ -31,14 +29,18 @@ function AsyncComboboxComponent<OptionType>({
   placeholder,
   dropdownIndicator,
   chakraStyles,
-  loadingElement,
-  emptyElement,
   isClearable = false,
+  loadingElement = "Loading...",
+  emptyElement = "No results found",
   searchInputPlaceholder = "Search...",
-  closeOnSelect = true,
+  closeOnSelect = false,
   insideDialog = false,
+  listboxProps,
+  withIndicator,
+  withCheckmark,
 }: AsyncComboboxProps<OptionType>) {
   const [isOpen, setIsOpen] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
   const onInputChange = useMemo(
     () =>
@@ -49,12 +51,12 @@ function AsyncComboboxComponent<OptionType>({
     []
   );
 
-  const menuListCss = makeCss(
+  const popoverContentCss = makeCss(
     {
       p: 0,
       overflow: "hidden",
     },
-    chakraStyles?.menuList
+    chakraStyles?.popoverContentCss
   );
 
   const clearButtonCss = makeCss(
@@ -65,6 +67,14 @@ function AsyncComboboxComponent<OptionType>({
     },
     chakraStyles?.clearButton
   );
+
+  const selectedOptions =
+    value?.map(v =>
+      getOptionLabel(
+        options.find(option => getOptionValue(option) === v) ||
+          ({} as OptionType)
+      )
+    ) || [];
 
   return (
     <Popover.Root
@@ -77,7 +87,8 @@ function AsyncComboboxComponent<OptionType>({
       <Popover.Trigger asChild>
         <AsyncComboboxButton controlCss={chakraStyles?.control}>
           <Text lineClamp={1}>
-            {(value && getOptionLabel(value)) || placeholder}
+            {(selectedOptions.length > 0 && selectedOptions.join(", ")) ||
+              placeholder}
           </Text>
 
           <Flex gap={2} align="center">
@@ -109,37 +120,38 @@ function AsyncComboboxComponent<OptionType>({
 
       <Portal disabled={insideDialog}>
         <Popover.Positioner>
-          <Popover.Content width="auto" css={menuListCss}>
-            <Box px="10px" borderBottomWidth="1px" borderColor="inherit">
-              <Input
-                placeholder={searchInputPlaceholder}
-                onChange={onInputChange}
-                inputCss={chakraStyles?.input}
-              />
-            </Box>
-
-            <VirtualizedScrollArea
+          <Popover.Content
+            width="auto"
+            minH={options.length > 7 ? "250px" : "auto"}
+            css={popoverContentCss}
+          >
+            <ListboxVirtualized<OptionType>
               options={options}
-              value={value}
+              getOptionLabel={getOptionLabel}
+              getOptionValue={getOptionValue}
+              searchInputPlaceholder={searchInputPlaceholder}
+              onInputChange={e => {
+                setInputValue(e.target.value);
+                onInputChange(e);
+              }}
+              value={value || []}
               onSelect={selectedOption => {
                 onSelect(selectedOption);
                 if (closeOnSelect) setIsOpen(false);
               }}
-              getOptionLabel={getOptionLabel}
-              getOptionValue={getOptionValue}
               isLoading={isLoading}
               isFetchingNextPage={isFetchingNextPage}
               fetchNextPage={fetchNextPage}
               hasNextPage={hasNextPage}
               loadingElement={loadingElement}
               emptyElement={emptyElement}
-              optionCss={chakraStyles?.option}
-              scrollAreaCss={chakraStyles?.scrollArea}
-              scrollbarCss={chakraStyles?.scrollbar}
-              scrollThumbCss={chakraStyles?.scrollThumb}
-              scrollCornerCss={chakraStyles?.scrollCorner}
               loadingMessageCss={chakraStyles?.loadingMessage}
               emptyMessageCss={chakraStyles?.emptyMessage}
+              inputCss={chakraStyles?.input}
+              listboxProps={listboxProps}
+              withIndicator={withIndicator}
+              withCheckmark={withCheckmark}
+              searchValue={inputValue}
             />
           </Popover.Content>
         </Popover.Positioner>
