@@ -111,7 +111,7 @@ export function ListboxVirtualized<OptionType>({
         onSelect(details.value);
       }}
     >
-      <Box px="10px" borderBottomWidth="1px" borderColor="inherit">
+      <Box px="10px" borderBottomWidth="1px" borderColor="inherit" w="full">
         <Input
           placeholder={searchInputPlaceholder}
           onChange={onInputChange}

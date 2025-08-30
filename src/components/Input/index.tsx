@@ -29,6 +29,7 @@ export const Input: React.FC<InputProps> = memo(({ inputCss, ...rest }) => {
 
   return (
     <InputGroup
+      w="full"
       startElement={
         <Icon
           as={MagnifyingGlass}
