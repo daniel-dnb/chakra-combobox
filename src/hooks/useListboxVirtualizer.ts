@@ -39,6 +39,7 @@ export function useListboxVirtualizer({
     getScrollElement: () => scrollRef.current,
     estimateSize: () => 32,
     overscan: 10,
+    gap: 4,
   });
 
   const virtualizerRef = useLiveRef(virtualizer);
