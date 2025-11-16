@@ -66,6 +66,10 @@ export interface AsyncComboboxProps<OptionType> {
    * @param option - The selected option.
    */
   onSelect: (option: string[] | undefined) => void;
+  /**
+   * Callback triggered when the combobox is blurred.
+   */
+  onBlur?: () => void;
   /** Close the combobox when an option is selected. */
   closeOnSelect?: boolean;
   /**

@@ -21,6 +21,7 @@ function AsyncComboboxComponent<OptionType>({
   isLoading,
   isFetchingNextPage,
   hasNextPage,
+  onBlur,
   onSearchChange,
   fetchNextPage,
   options,
@@ -83,6 +84,7 @@ function AsyncComboboxComponent<OptionType>({
       positioning={{ sameWidth: true }}
       lazyMount
       unmountOnExit
+      onExitComplete={onBlur}
     >
       <Popover.Trigger asChild>
         <AsyncComboboxButton controlCss={chakraStyles?.control}>
