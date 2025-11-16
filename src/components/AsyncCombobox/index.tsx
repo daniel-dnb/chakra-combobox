@@ -97,7 +97,7 @@ function AsyncComboboxComponent<OptionType>({
             {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
 
             <Flex gap={1} align="center">
-              {isClearable && value && (
+              {isClearable && value && value.length > 0 && (
                 <Button
                   as="span"
                   size="xs"
@@ -105,7 +105,7 @@ function AsyncComboboxComponent<OptionType>({
                   css={clearButtonCss}
                   onClick={e => {
                     e.stopPropagation();
-                    onSelect(undefined);
+                    onSelect([]);
                   }}
                 >
                   <Icon boxSize={4} as={LuX} />
