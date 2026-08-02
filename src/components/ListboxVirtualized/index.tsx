@@ -16,7 +16,10 @@ import { useMemo } from "react";
 import { useListboxVirtualizer } from "../../hooks/useListboxVirtualizer";
 import { Input } from "../Input";
 import { makeCss } from "../../helpers/makeCss";
-import { ListboxProps } from "../AsyncCombobox/types";
+import {
+  AsyncComboboxVirtualizerProps,
+  ListboxProps,
+} from "../AsyncCombobox/types";
 
 interface ListboxVirtualizedProps<OptionType> {
   options: OptionType[];
@@ -39,6 +42,7 @@ interface ListboxVirtualizedProps<OptionType> {
   inputCss?: (provided: SystemStyleObject) => SystemStyleObject;
   emptyMessageCss?: (provided: SystemStyleObject) => SystemStyleObject;
   loadingMessageCss?: (provided: SystemStyleObject) => SystemStyleObject;
+  virtualizer?: AsyncComboboxVirtualizerProps;
 }
 
 export function ListboxVirtualized<OptionType>({
@@ -62,6 +66,7 @@ export function ListboxVirtualized<OptionType>({
   inputCss,
   emptyMessageCss,
   loadingMessageCss,
+  virtualizer: virtualizerOptions,
 }: ListboxVirtualizedProps<OptionType>) {
   const virtual = useListboxVirtualizer({
     count: options.length,
@@ -69,6 +74,7 @@ export function ListboxVirtualized<OptionType>({
     isLoading,
     isFetchingNextPage,
     hasNextPage,
+    virtualizer: virtualizerOptions,
   });
 
   const collection = useMemo(

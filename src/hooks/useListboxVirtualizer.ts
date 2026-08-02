@@ -2,6 +2,7 @@ import { useLiveRef } from "@chakra-ui/react";
 import { type VirtualItem, useVirtualizer } from "@tanstack/react-virtual";
 import React, { useCallback, useEffect, useRef } from "react";
 import { throttle } from "../helpers/throttle";
+import type { AsyncComboboxVirtualizerProps } from "../components/AsyncCombobox/types";
 
 interface ScrollToIndexDetails {
   index: number;
@@ -15,7 +16,12 @@ interface UseListboxVirtualizerProps {
   isLoading: boolean;
   isFetchingNextPage: boolean;
   hasNextPage: boolean;
+  virtualizer?: AsyncComboboxVirtualizerProps;
 }
+
+type VirtualizedItemProps = React.ComponentProps<"div"> & {
+  "data-index"?: number;
+};
 
 export function useListboxVirtualizer({
   count,
@@ -23,9 +29,12 @@ export function useListboxVirtualizer({
   isLoading,
   isFetchingNextPage,
   hasNextPage,
+  virtualizer: virtualizerOptions,
 }: UseListboxVirtualizerProps) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const dynamicMeasure = virtualizerOptions?.dynamicMeasure ?? false;
 
   const clearScrollTimeout = () => {
     if (scrollTimeoutRef.current) {
@@ -37,9 +46,15 @@ export function useListboxVirtualizer({
   const virtualizer = useVirtualizer({
     count: count,
     getScrollElement: () => scrollRef.current,
-    estimateSize: () => 32,
+    estimateSize: index => {
+      const estimateSize = virtualizerOptions?.estimateSize;
+
+      return typeof estimateSize === "function"
+        ? estimateSize(index)
+        : estimateSize ?? 32;
+    },
     overscan: 10,
-    gap: 4,
+    gap: virtualizerOptions?.gap ?? 4,
   });
 
   const virtualizerRef = useLiveRef(virtualizer);
@@ -118,7 +133,7 @@ export function useListboxVirtualizer({
     ): React.ComponentProps<"div"> {
       return {
         style: {
-          height: "200px",
+          height: virtualizerOptions?.viewportHeight ?? "200px",
           position: "relative",
           width: "100%",
           ...props.style,
@@ -128,24 +143,43 @@ export function useListboxVirtualizer({
     },
     getItemProps(
       props: React.ComponentProps<"div"> & { virtualItem: VirtualItem }
-    ): React.ComponentProps<"div"> {
+    ): VirtualizedItemProps {
       const { virtualItem, ...rest } = props;
-      return {
+
+      const itemStyle: React.CSSProperties = {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        ...(dynamicMeasure
+          ? {}
+          : {
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }),
+        ...rest.style,
+        ...(dynamicMeasure ? {} : { height: `${virtualItem.size}px` }),
+        transform: `translateY(${virtualItem.start}px)`,
+      };
+
+      const itemProps = {
         ...rest,
         "aria-posinset": virtualItem.index + 1,
         "aria-setsize": totalSize,
-        style: {
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          whiteSpace: "nowrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          ...rest.style,
-          height: `${virtualItem.size}px`,
-          transform: `translateY(${virtualItem.start}px)`,
-        },
+        style: itemStyle,
+      };
+
+      if (dynamicMeasure) {
+        return {
+          ...itemProps,
+          ref: virtualizer.measureElement,
+          "data-index": virtualItem.index,
+        };
+      }
+
+      return {
+        ...itemProps,
       };
     },
   };

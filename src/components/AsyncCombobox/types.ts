@@ -6,6 +6,26 @@ import {
 } from "@chakra-ui/react";
 import React, { ElementType } from "react";
 
+export interface AsyncComboboxVirtualizerProps {
+  /**
+   * Initial estimated row height in pixels. Defaults to 32.
+   */
+  estimateSize?: number | ((index: number) => number);
+  /**
+   * Gap between virtual items in pixels. Defaults to 4.
+   */
+  gap?: number;
+  /**
+   * Viewport/scroll container height. Defaults to "200px".
+   */
+  viewportHeight?: number | string;
+  /**
+   * Enables dynamic measurement through TanStack Virtual's measureElement.
+   * Defaults to false to preserve the fixed-height behavior.
+   */
+  dynamicMeasure?: boolean;
+}
+
 export interface AsyncComboboxProps<OptionType> {
   /**
    * Indicates whether the search is loading.
@@ -96,6 +116,10 @@ export interface AsyncComboboxProps<OptionType> {
    * Custom props for the listbox.
    */
   listboxProps?: ListboxProps;
+  /**
+   * Configuration for the virtualized options list.
+   */
+  virtualizer?: AsyncComboboxVirtualizerProps;
   /**
    * Whether to show the indicator.
    */

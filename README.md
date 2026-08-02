@@ -162,6 +162,7 @@ export const MultipleSelectionCombobox = () => {
 | `searchInputPlaceholder` | `string` (optional)                       | Custom placeholder for the search input.                    |
 | `chakraStyles`           | `AsyncComboboxChakraStyles` (optional)    | Customize the component styles.                             |
 | `listboxProps`           | `ListboxProps` (optional)                 | Custom props for the listbox component.                     |
+| `virtualizer`            | `AsyncComboboxVirtualizerProps` (optional) | Configure row estimates, gaps, viewport height, and dynamic measurement. |
 | `withIndicator`          | `boolean` (optional)                      | Whether to show the dropdown indicator.                     |
 | `withCheckmark`          | `boolean` (optional)                      | Whether to show checkmarks for selected items.              |
 
@@ -219,9 +220,28 @@ const customStyles: AsyncComboboxChakraStyles = {
 
 The component uses `react-virtual` to render only visible elements on the screen, improving performance when dealing with large lists.
 
+Virtualizer defaults preserve the existing behavior (`estimateSize: 32`, `gap: 4`, and a `200px` viewport). For options whose content has a variable height, enable dynamic measurement:
+
+```tsx
+<AsyncCombobox
+  // ... other props
+  virtualizer={{
+    estimateSize: 64,
+    gap: 8,
+    viewportHeight: 280,
+    dynamicMeasure: true,
+  }}
+/>;
+```
+
 ## Documentation & Demo
 
 For a full demonstration and detailed documentation, visit the [Storybook Documentation](https://daniel-dnb.github.io/chakra-combobox).
+
+## Version 4.1.0 Changes
+
+- **New**: Added configurable virtualizer options through the `virtualizer` prop.
+- **New**: Added dynamic item measurement for variable-height options.
 
 ## Version 4.0.0 Changes
 

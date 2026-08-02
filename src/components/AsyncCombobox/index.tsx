@@ -39,6 +39,7 @@ function AsyncComboboxComponent<OptionType>({
   listboxProps,
   withIndicator,
   withCheckmark,
+  virtualizer,
 }: AsyncComboboxProps<OptionType>) {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -154,6 +155,7 @@ function AsyncComboboxComponent<OptionType>({
               withIndicator={withIndicator}
               withCheckmark={withCheckmark}
               searchValue={inputValue}
+              virtualizer={virtualizer}
             />
           </Popover.Content>
         </Popover.Positioner>
