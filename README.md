@@ -147,6 +147,7 @@ export const MultipleSelectionCombobox = () => {
 | `onSelect`               | `(option: string[] \| undefined) => void` | Function triggered when options are selected.               |
 | `getOptionLabel`         | `(option: OptionType) => string`          | Function returning the option label.                        |
 | `getOptionValue`         | `(option: OptionType) => string`          | Function returning the option value.                        |
+| `renderValue`            | `(selectedOptions: OptionType[]) => ReactNode` (optional) | Custom rendering for selected values in the trigger.       |
 | `placeholder`            | `string`                                  | Input placeholder text.                                     |
 | `onSearchChange`         | `(search: string) => void`                | Function called when typing in the search input.            |
 | `isLoading`              | `boolean`                                 | Indicates if data is being loaded.                          |
@@ -182,6 +183,19 @@ To enable multiple selection, configure the `listboxProps`:
   }}
   withCheckmark // Shows checkmarks for selected items
 />
+```
+
+### Custom Selected Value
+
+Use `renderValue` to render the selected option(s) with a custom layout in the trigger. When omitted, the selected labels are still joined with `", "`.
+
+```tsx
+<AsyncCombobox
+  // ... other props
+  getOptionLabel={option => option.name}
+  getOptionValue={option => option.id}
+  renderValue={([selected]) => <CustomSelectedLayout option={selected} />}
+/>;
 ```
 
 ### Inside Dialogs/Modals
@@ -237,6 +251,10 @@ Virtualizer defaults preserve the existing behavior (`estimateSize: 32`, `gap: 4
 ## Documentation & Demo
 
 For a full demonstration and detailed documentation, visit the [Storybook Documentation](https://daniel-dnb.github.io/chakra-combobox).
+
+## Version 4.2.0 Changes
+
+- **New**: Added the optional `renderValue` prop for custom selected-value layouts in the trigger.
 
 ## Version 4.1.0 Changes
 

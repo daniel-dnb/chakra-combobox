@@ -40,6 +40,7 @@ function AsyncComboboxComponent<OptionType>({
   withIndicator,
   withCheckmark,
   virtualizer,
+  renderValue,
 }: AsyncComboboxProps<OptionType>) {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -71,12 +72,22 @@ function AsyncComboboxComponent<OptionType>({
   );
 
   const selectedOptions =
+    value
+      ?.map(v => options.find(option => getOptionValue(option) === v))
+      .filter((option): option is OptionType => option !== undefined) ?? [];
+
+  const selectedLabels =
     value?.map(v =>
       getOptionLabel(
         options.find(option => getOptionValue(option) === v) ||
           ({} as OptionType)
       )
     ) || [];
+
+  const hasCustomValue = Boolean(renderValue && selectedOptions.length > 0);
+  const selectedValue = hasCustomValue
+    ? renderValue?.(selectedOptions)
+    : selectedLabels.join(", ") || placeholder;
 
   return (
     <Popover.Root
@@ -89,12 +100,17 @@ function AsyncComboboxComponent<OptionType>({
     >
       <Popover.Trigger asChild>
         <AsyncComboboxButton controlCss={chakraStyles?.control}>
-          <Text lineClamp={1}>
-            {(selectedOptions.length > 0 && selectedOptions.join(", ")) ||
-              placeholder}
-          </Text>
+          <Flex minW={0} flex="1" overflow="hidden">
+            {hasCustomValue ? (
+              selectedValue
+            ) : (
+              <Text minW={0} lineClamp={1}>
+                {selectedValue}
+              </Text>
+            )}
+          </Flex>
 
-          <Flex gap={2} align="center">
+          <Flex gap={2} align="center" flexShrink={0}>
             {(isLoading || isFetchingNextPage) && <Spinner size="sm" />}
 
             <Flex gap={1} align="center">

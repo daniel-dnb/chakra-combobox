@@ -73,6 +73,11 @@ export interface AsyncComboboxProps<OptionType> {
    */
   getOptionValue: (option: OptionType) => string;
   /**
+   * Custom render for the selected value(s) in the trigger.
+   * When omitted, the selected labels are joined with ", ".
+   */
+  renderValue?: (selectedOptions: OptionType[]) => React.ReactNode;
+  /**
    * Callback triggered when the search input text changes.
    * @param value - The new search value.
    */
